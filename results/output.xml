@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-03-08T01:32:10.716222" rpa="false" schemaversion="5">
+<suite id="s1" name="OnePay" source="E:\Automation\OnePay">
+<suite id="s1-s1" name="Paygate" source="E:\Automation\OnePay\Paygate">
+<suite id="s1-s1-s1" name="Tests" source="E:\Automation\OnePay\Paygate\Tests">
+<suite id="s1-s1-s1-s1" name="UI tests" source="E:\Automation\OnePay\Paygate\Tests\UI_tests">
+<suite id="s1-s1-s1-s1-s1" name="tcsPaygate" source="E:\Automation\OnePay\Paygate\Tests\UI_tests\tcsPaygate.robot">
+<kw name="Open test brower" owner="Common" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-03-08T01:32:11.248929" level="INFO">Opening browser 'chrome' to base url 'https://dev.onepay.vn/client/qt/'.</msg>
+<arg>${PAYGATE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-03-08T01:32:11.247915" elapsed="1.687712"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-03-08T01:32:12.935627" elapsed="0.121931"/>
+</kw>
+<arg>${PAYGATE_URL}</arg>
+<arg>chrome</arg>
+<status status="PASS" start="2024-03-08T01:32:11.246917" elapsed="1.810641"/>
+</kw>
+<test id="s1-s1-s1-s1-s1-t1" name="Validate data exp date" line="42">
+<kw name="Paygate" owner="Paygate">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-08T01:32:13.061554" level="INFO">Typing text '1000000' into text field 'name:vpc_Amount'.</msg>
+<arg>${amount}</arg>
+<arg>1000000</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-08T01:32:13.060556" elapsed="0.138919"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-03-08T01:32:13.200474" level="INFO">Clicking button 'xpath://input[@value='Pay Now!']'.</msg>
+<arg>${btnPayNow}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-08T01:32:13.199475" elapsed="0.256697"/>
+</kw>
+<status status="PASS" start="2024-03-08T01:32:13.059556" elapsed="0.397606"/>
+</kw>
+<kw name="Select domestic" owner="Paygate">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${radioDomestic}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-03-08T01:32:13.458162" elapsed="1.299252"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-08T01:32:14.758415" level="INFO">Clicking element 'id:domescard-radio'.</msg>
+<arg>${radioDomestic}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-08T01:32:14.757414" elapsed="0.083951"/>
+</kw>
+<status status="PASS" start="2024-03-08T01:32:13.458162" elapsed="1.383203"/>
+</kw>
+<kw name="Select bank" owner="Paygate">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${listBank}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-03-08T01:32:14.843364" elapsed="0.180897"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-03-08T01:32:15.092225" level="INFO">@{banks} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="45d0c993a2e9fc6bc9c0779e10ba94db", element="f.66A5CE8D99AD8740D291C8762BC27E3A.d.763367844D2ABC5695789635549D734F.e.204")&gt; | &lt;selenium.webd...</msg>
+<var>@{banks}</var>
+<arg>${listBank}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-03-08T01:32:15.025261" elapsed="0.066964"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-08T01:32:15.094220" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="45d0c993a2e9fc6bc9c0779e10ba94db", element="f.66A5CE8D99AD8740D291C8762BC27E3A.d.763367844D2ABC5695789635549D734F.e.205")&gt;'.</msg>
+<arg>${banks}[${bankId}]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-08T01:32:15.093222" elapsed="0.094944"/>
+</kw>
+<arg>1</arg>
+<status status="PASS" start="2024-03-08T01:32:14.842365" elapsed="0.346800"/>
+</kw>
+<kw name="Open Excel Document" owner="ExcelLibrary">
+<arg>${EXCEL}</arg>
+<arg>sheet1</arg>
+<doc>Opens xlsx document file.</doc>
+<status status="PASS" start="2024-03-08T01:32:15.190164" elapsed="0.020990"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2024-03-08T01:32:15.213153" level="INFO">${expDate} = 0113@$#$</msg>
+<var>${expDate}</var>
+<arg>${index}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2024-03-08T01:32:15.212154" elapsed="0.000999"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${localExpDate}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-08T01:32:15.213153" elapsed="0.041975"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-08T01:32:15.256127" level="INFO">Typing text '0113@$#$' into text field 'id:exp_date'.</msg>
+<arg>${localExpDate}</arg>
+<arg>${expDate}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-08T01:32:15.255128" elapsed="0.121930"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-03-08T01:32:17.378207" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-03-08T01:32:15.377058" elapsed="2.001149"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-08T01:32:17.379206" level="INFO">Clicking element 'id:card_name'.</msg>
+<arg>${localCardName}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-08T01:32:17.378207" elapsed="0.053969"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2024-03-08T01:32:17.434175" level="INFO">${epextMsg} = Không hợp lệ</msg>
+<var>${epextMsg}</var>
+<arg>${index}</arg>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2024-03-08T01:32:17.433187" elapsed="0.000988"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-03-08T01:32:17.459160" level="INFO">Element 'xpath:(//span[@class='error'])[1]' is displayed.</msg>
+<arg>${msgErrorDate}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-03-08T01:32:17.435174" elapsed="0.024987"/>
+</kw>
+<msg time="2024-03-08T01:32:17.460161" level="INFO">${resual1} = True</msg>
+<var>${resual1}</var>
+<arg>Element Should Be Visible</arg>
+<arg>${msgErrorDate}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-03-08T01:32:17.434175" elapsed="0.025986"/>
+</kw>
+<if>
+<branch type="IF" condition="${resual1} == $True">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-03-08T01:32:17.462160" level="INFO">test</msg>
+<arg>test</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-03-08T01:32:17.461160" elapsed="0.001000"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2024-03-08T01:32:17.463158" level="INFO">Verifying element 'xpath:(//span[@class='error'])[1]' contains exact text 'Không hợp lệ'.</msg>
+<arg>${msgErrorDate}</arg>
+<arg>${epextMsg}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2024-03-08T01:32:17.462160" elapsed="0.023985"/>
+</kw>
+<msg time="2024-03-08T01:32:17.486145" level="INFO">${resual2} = True</msg>
+<var>${resual2}</var>
+<arg>Element Text Should Be</arg>
+<arg>${msgErrorDate}</arg>
+<arg>${epextMsg}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-03-08T01:32:17.462160" elapsed="0.023985"/>
+</kw>
+<if>
+<branch type="IF" condition="${resual2} == True">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${index}</arg>
+<arg>6</arg>
+<arg>PASS</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2024-03-08T01:32:17.487146" elapsed="0.000999"/>
+</kw>
+<kw name="Save Excel Document" owner="ExcelLibrary">
+<arg>${EXCEL}</arg>
+<doc>Saves the current document to disk.</doc>
+<status status="PASS" start="2024-03-08T01:32:17.488145" elapsed="0.017989"/>
+</kw>
+<status status="PASS" start="2024-03-08T01:32:17.487146" elapsed="0.018988"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${index}</arg>
+<arg>6</arg>
+<arg>FAIL</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2024-03-08T01:32:17.507133" elapsed="0.000000"/>
+</kw>
+<kw name="Save Excel Document" owner="ExcelLibrary">
+<arg>${EXCEL}</arg>
+<doc>Saves the current document to disk.</doc>
+<status status="NOT RUN" start="2024-03-08T01:32:17.507133" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-03-08T01:32:17.506134" elapsed="0.000999"/>
+</branch>
+<status status="PASS" start="2024-03-08T01:32:17.487146" elapsed="0.019987"/>
+</if>
+<status status="PASS" start="2024-03-08T01:32:17.461160" elapsed="0.045973"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${index}</arg>
+<arg>6</arg>
+<arg>PASS</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2024-03-08T01:32:17.508132" elapsed="0.000000"/>
+</kw>
+<kw name="Save Excel Document" owner="ExcelLibrary">
+<arg>${EXCEL}</arg>
+<doc>Saves the current document to disk.</doc>
+<status status="NOT RUN" start="2024-03-08T01:32:17.508132" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-03-08T01:32:17.507133" elapsed="0.000999"/>
+</branch>
+<status status="PASS" start="2024-03-08T01:32:17.460161" elapsed="0.047971"/>
+</if>
+<var name="${index}">7</var>
+<status status="PASS" start="2024-03-08T01:32:15.212154" elapsed="2.295978"/>
+</iter>
+<iter>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2024-03-08T01:32:17.509132" level="INFO">${expDate} = @$#$</msg>
+<var>${expDate}</var>
+<arg>${index}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2024-03-08T01:32:17.509132" elapsed="0.000999"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${localExpDate}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-08T01:32:17.510131" elapsed="0.033983"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-08T01:32:17.546112" level="INFO">Typing text '@$#$' into text field 'id:exp_date'.</msg>
+<arg>${localExpDate}</arg>
+<arg>${expDate}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-08T01:32:17.545136" elapsed="0.071936"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-03-08T01:32:19.619084" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-03-08T01:32:17.617072" elapsed="2.002012"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-08T01:32:19.620084" level="INFO">Clicking element 'id:card_name'.</msg>
+<arg>${localCardName}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-08T01:32:19.619084" elapsed="0.039978"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2024-03-08T01:32:19.660061" level="INFO">${epextMsg} = Không hợp lệ</msg>
+<var>${epextMsg}</var>
+<arg>${index}</arg>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2024-03-08T01:32:19.659062" elapsed="0.000999"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-03-08T01:32:19.678049" level="INFO">Element 'xpath:(//span[@class='error'])[1]' is displayed.</msg>
+<arg>${msgErrorDate}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-03-08T01:32:19.661060" elapsed="0.017989"/>
+</kw>
+<msg time="2024-03-08T01:32:19.679049" level="INFO">${resual1} = True</msg>
+<var>${resual1}</var>
+<arg>Element Should Be Visible</arg>
+<arg>${msgErrorDate}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-03-08T01:32:19.660061" elapsed="0.018988"/>
+</kw>
+<if>
+<branch type="IF" condition="${resual1} == $True">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-03-08T01:32:19.680050" level="INFO">test</msg>
+<arg>test</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-03-08T01:32:19.680050" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2024-03-08T01:32:19.681051" level="INFO">Verifying element 'xpath:(//span[@class='error'])[1]' contains exact text 'Không hợp lệ'.</msg>
+<arg>${msgErrorDate}</arg>
+<arg>${epextMsg}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2024-03-08T01:32:19.681051" elapsed="0.017989"/>
+</kw>
+<msg time="2024-03-08T01:32:19.700051" level="INFO">${resual2} = True</msg>
+<var>${resual2}</var>
+<arg>Element Text Should Be</arg>
+<arg>${msgErrorDate}</arg>
+<arg>${epextMsg}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-03-08T01:32:19.681051" elapsed="0.019000"/>
+</kw>
+<if>
+<branch type="IF" condition="${resual2} == True">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${index}</arg>
+<arg>6</arg>
+<arg>PASS</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2024-03-08T01:32:19.701038" elapsed="0.000000"/>
+</kw>
+<kw name="Save Excel Document" owner="ExcelLibrary">
+<arg>${EXCEL}</arg>
+<doc>Saves the current document to disk.</doc>
+<status status="PASS" start="2024-03-08T01:32:19.702039" elapsed="0.021985"/>
+</kw>
+<status status="PASS" start="2024-03-08T01:32:19.700051" elapsed="0.023973"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${index}</arg>
+<arg>6</arg>
+<arg>FAIL</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2024-03-08T01:32:19.725022" elapsed="0.000000"/>
+</kw>
+<kw name="Save Excel Document" owner="ExcelLibrary">
+<arg>${EXCEL}</arg>
+<doc>Saves the current document to disk.</doc>
+<status status="NOT RUN" start="2024-03-08T01:32:19.725022" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-03-08T01:32:19.725022" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2024-03-08T01:32:19.700051" elapsed="0.024971"/>
+</if>
+<status status="PASS" start="2024-03-08T01:32:19.679049" elapsed="0.046974"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${index}</arg>
+<arg>6</arg>
+<arg>PASS</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2024-03-08T01:32:19.726023" elapsed="0.000000"/>
+</kw>
+<kw name="Save Excel Document" owner="ExcelLibrary">
+<arg>${EXCEL}</arg>
+<doc>Saves the current document to disk.</doc>
+<status status="NOT RUN" start="2024-03-08T01:32:19.726023" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-03-08T01:32:19.726023" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2024-03-08T01:32:19.679049" elapsed="0.046974"/>
+</if>
+<var name="${index}">8</var>
+<status status="PASS" start="2024-03-08T01:32:17.509132" elapsed="2.216891"/>
+</iter>
+<iter>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2024-03-08T01:32:19.727020" level="INFO">${expDate} = </msg>
+<var>${expDate}</var>
+<arg>${index}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2024-03-08T01:32:19.727020" elapsed="0.001000"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${localExpDate}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-08T01:32:19.728020" elapsed="0.033982"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-08T01:32:19.765000" level="INFO">Typing text '' into text field 'id:exp_date'.</msg>
+<arg>${localExpDate}</arg>
+<arg>${expDate}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-08T01:32:19.763002" elapsed="0.082951"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-03-08T01:32:21.847964" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-03-08T01:32:19.846953" elapsed="2.003013"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-08T01:32:21.850955" level="INFO">Clicking element 'id:card_name'.</msg>
+<arg>${localCardName}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-08T01:32:21.849966" elapsed="0.054956"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2024-03-08T01:32:21.907930" level="INFO">${epextMsg} = None</msg>
+<var>${epextMsg}</var>
+<arg>${index}</arg>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2024-03-08T01:32:21.904922" elapsed="0.003008"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-03-08T01:32:21.931906" level="INFO">Element 'xpath:(//span[@class='error'])[1]' is displayed.</msg>
+<arg>${msgErrorDate}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-03-08T01:32:21.908924" elapsed="0.022982"/>
+</kw>
+<msg time="2024-03-08T01:32:21.931906" level="INFO">${resual1} = True</msg>
+<var>${resual1}</var>
+<arg>Element Should Be Visible</arg>
+<arg>${msgErrorDate}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-03-08T01:32:21.908924" elapsed="0.023981"/>
+</kw>
+<if>
+<branch type="IF" condition="${resual1} == $True">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-03-08T01:32:21.933904" level="INFO">test</msg>
+<arg>test</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-03-08T01:32:21.932905" elapsed="0.000999"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2024-03-08T01:32:21.934905" level="INFO">Verifying element 'xpath:(//span[@class='error'])[1]' contains exact text 'None'.</msg>
+<msg time="2024-03-08T01:32:22.122809" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-03-08T01:32:22.123796" level="FAIL">The text of element 'xpath:(//span[@class='error'])[1]' should have been 'None' but it was 'Không hợp lệ'.</msg>
+<arg>${msgErrorDate}</arg>
+<arg>${epextMsg}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="FAIL" start="2024-03-08T01:32:21.934905" elapsed="0.191891">The text of element 'xpath:(//span[@class='error'])[1]' should have been 'None' but it was 'Không hợp lệ'.</status>
+</kw>
+<msg time="2024-03-08T01:32:22.126796" level="INFO">${resual2} = False</msg>
+<var>${resual2}</var>
+<arg>Element Text Should Be</arg>
+<arg>${msgErrorDate}</arg>
+<arg>${epextMsg}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-03-08T01:32:21.933904" elapsed="0.192892"/>
+</kw>
+<if>
+<branch type="IF" condition="${resual2} == True">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${index}</arg>
+<arg>6</arg>
+<arg>PASS</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2024-03-08T01:32:22.127794" elapsed="0.000000"/>
+</kw>
+<kw name="Save Excel Document" owner="ExcelLibrary">
+<arg>${EXCEL}</arg>
+<doc>Saves the current document to disk.</doc>
+<status status="NOT RUN" start="2024-03-08T01:32:22.127794" elapsed="0.001003"/>
+</kw>
+<status status="NOT RUN" start="2024-03-08T01:32:22.126796" elapsed="0.002001"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${index}</arg>
+<arg>6</arg>
+<arg>FAIL</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2024-03-08T01:32:22.128797" elapsed="0.000000"/>
+</kw>
+<kw name="Save Excel Document" owner="ExcelLibrary">
+<arg>${EXCEL}</arg>
+<doc>Saves the current document to disk.</doc>
+<status status="PASS" start="2024-03-08T01:32:22.129794" elapsed="0.007993"/>
+</kw>
+<status status="PASS" start="2024-03-08T01:32:22.128797" elapsed="0.008990"/>
+</branch>
+<status status="PASS" start="2024-03-08T01:32:22.126796" elapsed="0.010991"/>
+</if>
+<status status="PASS" start="2024-03-08T01:32:21.932905" elapsed="0.205883"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${index}</arg>
+<arg>6</arg>
+<arg>PASS</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2024-03-08T01:32:22.138788" elapsed="0.000000"/>
+</kw>
+<kw name="Save Excel Document" owner="ExcelLibrary">
+<arg>${EXCEL}</arg>
+<doc>Saves the current document to disk.</doc>
+<status status="NOT RUN" start="2024-03-08T01:32:22.138788" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-03-08T01:32:22.138788" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2024-03-08T01:32:21.932905" elapsed="0.206882"/>
+</if>
+<var name="${index}">9</var>
+<status status="PASS" start="2024-03-08T01:32:19.727020" elapsed="2.412767"/>
+</iter>
+<var>${index}</var>
+<value>7</value>
+<value>10</value>
+<status status="PASS" start="2024-03-08T01:32:15.211154" elapsed="6.928633"/>
+</for>
+<status status="PASS" start="2024-03-08T01:32:13.058556" elapsed="9.081231"/>
+</test>
+<kw name="Close test brower" owner="Common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2024-03-08T01:32:22.141786" elapsed="3.273880"/>
+</kw>
+<status status="PASS" start="2024-03-08T01:32:22.141786" elapsed="3.273880"/>
+</kw>
+<status status="PASS" start="2024-03-08T01:32:10.777187" elapsed="14.638479"/>
+</suite>
+<status status="PASS" start="2024-03-08T01:32:10.774188" elapsed="14.644478"/>
+</suite>
+<status status="PASS" start="2024-03-08T01:32:10.768192" elapsed="14.654473"/>
+</suite>
+<status status="PASS" start="2024-03-08T01:32:10.765194" elapsed="14.665464"/>
+</suite>
+<status status="PASS" start="2024-03-08T01:32:10.735210" elapsed="14.698452"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="OnePay">OnePay</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Paygate">OnePay.Paygate</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="Tests">OnePay.Paygate.Tests</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1-s1" name="UI tests">OnePay.Paygate.Tests.UI tests</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1-s1-s1" name="tcsPaygate">OnePay.Paygate.Tests.UI tests.tcsPaygate</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
