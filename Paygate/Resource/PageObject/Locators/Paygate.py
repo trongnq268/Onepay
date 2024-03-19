@@ -27,3 +27,7 @@ localBoquaPopup = "xpath://div[@class='content row']//a"
 #page OTP onepay
 localOtp = "name:otp"
 localBtnSubmitOtp = "xpath://div[@class='otp']/button"
+otp = "123456"
+#Token OnePay
+localToken = "xpath:(//div[@class='form enable_form'])[1]"
+localBtnThanhToanToken = "xpath:(//button[@class='btn btn-primary btn-xs col-md-6 btn_submit_select'])[1]"

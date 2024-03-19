@@ -19,7 +19,7 @@ Create payment token merchant
     Wait Until Element Is Enabled    ${localBtnThanhToan}
     Click Button    ${localBtnThanhToan}
     Wait Until Element Is Visible    ${localOtp}    15s
-    Input OTP    123456
+    Input OTP    ${otp}
     Click Button    ${localBtnSubmitOtp}
 
 Payment token merchant
@@ -33,9 +33,27 @@ Payment token merchant
     Input OTP    123456
     Click Button    ${localBtnSubmitOtp}
 
-Payment token onepay
-    [Arguments]    ${txtThem}
+Create token onepay
+    [Arguments]    ${txtThem}    ${txtUserID}    ${index}    
     Select Merchant ID
     Input them    ${txtThem}
+    Input Customer User Id    ${txtUserID} 
     Paygate
-    
+    Select domestic
+    Select bank    ${index}
+    Input carNumber    9704360000000000002
+    Input expDate    1123
+    Input cardName    Nguyen van a 
+    Wait Until Element Is Enabled    ${localBtnThanhToan}
+    Click Button    ${localBtnThanhToan}
+    Wait Until Element Is Visible    ${localOtp}    15s
+    Input OTP    123456
+    Click Button    ${localBtnSubmitOtp}
+
+Payment Token Onepay
+    Click Element    ${localToken}
+    Wait Until Element Is Visible    ${localBtnThanhToanToken}
+    Click Element    ${localBtnThanhToanToken}
+    Wait Until Element Is Visible    ${localOtp}    15s
+    Input OTP    123456
+    Click Button    ${localBtnSubmitOtp}

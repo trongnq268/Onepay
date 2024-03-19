@@ -34,13 +34,21 @@ Giao dich token merchant
     
     ${token_num}=    Extract Token Value    ${current_url}    vpc_TokenNum=    &
     ${token_exp}=    Extract Token Value    ${current_url}    vpc_TokenExp=    &
-    Log To Console    token number ${token_num}
-    Log To Console    token exp ${token_exp}
+    # Log To Console    token number ${token_num}
+    # Log To Console    token exp ${token_exp}
     Go To    ${PAYGATE_URL}
     Payment token merchant    ${token_num}    ${token_exp}
     Wait Until Element Is Visible    ${localTitlePageKetQua}    20s
     Element Text Should Be    ${localTitlePageKetQua}    Giao dịch thành công
 
-# Tesst 1123
-#     Open Excel Document    ${EXCEL}    sheet1
-#     ${cardNumber}=    Get Value From Column By Name 
+Giao dich token OP 
+    Go To    ${PAYGATE_URL}
+    Create token onepay    token    AutoTest      1
+    Go To    ${PAYGATE_URL}
+    Select Merchant ID
+    Input them    token
+    Input Customer User Id    AutoTest
+    Paygate
+    Payment Token Onepay
+    Wait Until Element Is Visible    ${localTitlePageKetQua}    20s
+    Element Text Should Be    ${localTitlePageKetQua}    Giao dịch thành công
