@@ -9,24 +9,28 @@ ${EXCEL}    Paygate/Resource/Data/Excel/cardNumber.xlsx
 *** Keywords ***
 Select Merchant ID 
     Click Element    ${selectMid}
-    Wait Until Element Is Visible    ${localMerchantTestToken}
-    Click Element    ${localMerchantTestToken}
+    Wait Until Element Is Visible    ${locationMerchantTestToken}
+    Click Element    ${locationMerchantTestToken}
 
 Input them 
     [Arguments]    ${txtThem}
-    Input Text    ${localThem}    ${txtThem}
+    Input Text    ${locationThem}    ${txtThem}
 
 Input Customer User Id
     [Arguments]    ${txtUserId}
-    Input Text    ${localUserId}    ${txtUserId}
+    Input Text    ${locationUserId}    ${txtUserId}
+
+Input Amount 
+    [Arguments]    ${txtAmount}
+    Input Text    ${locationAmount}     ${txtAmount}
     
 Paygate
-    Input Text    ${localAmount}    1000000
+    # Input Text    ${locationAmount}    1000000
     Click Button    ${btnPayNow}
     Sleep    2
 
 Select payment token 
-    Input Text    ${localAmount}    1000000
+    Input Text    ${locationAmount}    1000000
     Click Element    ${createToken}
     Wait Until Element Is Visible    ${valueCreateTokenTrue}
     Click Element    ${valueCreateTokenTrue}
@@ -41,37 +45,37 @@ Select bank
     Wait Until Element Is Visible    ${listBank}
     @{banks}=     Get WebElements    ${listBank}
     Click Element    ${banks}[${bankId}]
-Get Index
-    [Arguments]    ${string}    ${sub_string}
-    ${index}=    Evaluate    ${string}.find("${sub_string}")
-    [Return]    ${index}
+# Get Index
+#     [Arguments]    ${string}    ${sub_string}
+#     ${index}=    Evaluate    ${string}.find("${sub_string}")
+#     [Return]    ${index}
 Verify title bank
     [Arguments]    ${expectTitle}
     Element Text Should Be    ${titleCard}    ${expectTitle}
 
 Input carNumber
     [Arguments]    ${txtCardNumber}
-    Input Text    ${localCardNumber}    ${txtCardNumber}
+    Input Text    ${locationCardNumber}    ${txtCardNumber}
 
 Input expDate
     [Arguments]    ${txtExpDate}
-    Input Text    ${localExpDate}    ${txtExpDate}
+    Input Text    ${locationExpDate}    ${txtExpDate}
 
 Input cardName
     [Arguments]    ${txtCardName}
-    Input Text    ${localCardName}    ${txtCardName}
+    Input Text    ${locationCardName}    ${txtCardName}
 
 Input OTP 
     [Arguments]    ${otp}
-    Input Text    ${localOtp}    ${otp}
+    Input Text    ${locationOtp}    ${otp}
 
 
 Validate cardNumber
     FOR  ${index}  IN RANGE    2    7
         ${cardNumber}=    Read Excel Cell    ${index}    2
-        Wait Until Element Is Visible     ${localCardNumber}    10s
-        Input Text    ${localCardNumber}    ${cardNumber}
-        Click Element    ${localExpDate}
+        Wait Until Element Is Visible     ${locationCardNumber}    10s
+        Input Text    ${locationCardNumber}    ${cardNumber}
+        Click Element    ${locationExpDate}
         ${resual1}=    Run Keyword And Return Status    Element Should Be Visible    ${msgErrorCardNumne}
         IF  ${resual1} == $True
             Log    test
@@ -92,9 +96,9 @@ Validate cardNumber
 
 Verify placeholder
     [Arguments]    ${txtPlaceholderCardNumber}    ${txtPlaceholderExpDate}    ${txtplaceholderCardName}
-    ${placeholderCardNumber}=    Get Element Attribute    ${localCardNumber}    placeholder
-    ${txtPlaceholderExpDate}=    Get Element Attribute    ${localExpDate}    placeholder
-    ${txtplaceholderCardName}=    Get Element Attribute    ${localCardName}    placeholder
+    ${placeholderCardNumber}=    Get Element Attribute    ${locationCardNumber}    placeholder
+    ${txtPlaceholderExpDate}=    Get Element Attribute    ${locationExpDate}    placeholder
+    ${txtplaceholderCardName}=    Get Element Attribute    ${locationCardName}    placeholder
     # ${cardName}=     Get Element Attribute    locator    style
     Should Be Equal    ${placeholderCardNumber}     ${txtPlaceholderCardNumber} 
     Should Be Equal    ${txtPlaceholderExpDate}    ${txtPlaceholderExpDate}
@@ -109,11 +113,11 @@ chon bank
 Validate expDate
     FOR  ${index}  IN RANGE    7    10
         ${expDate}=    Read Excel Cell    ${index}    3
-        Wait Until Element Is Visible    ${localExpDate}    10s
-        Clear Element Text    ${localExpDate}
-        Input Text    ${localExpDate}    ${expDate}
+        Wait Until Element Is Visible    ${locationExpDate}    10s
+        Clear Element Text    ${locationExpDate}
+        Input Text    ${locationExpDate}    ${expDate}
         Sleep    2
-        Click Element    ${localCardName}
+        Click Element    ${locationCardName}
         ${epextMsg}    Read Excel Cell    ${index}    5
         ${resual1}=    Run Keyword And Return Status    Element Should Be Visible    ${msgErrorDate}
         IF  ${resual1} == $True
@@ -134,11 +138,11 @@ Validate expDate
 Validate cardName
     FOR  ${index}  IN RANGE    10    12
         ${userName}=    Read Excel Cell    ${index}    4
-        Wait Until Element Is Visible    ${localCardName}    10s
-        Clear Element Text    ${localCardName}
-        Input Text    ${localCardName}    ${userName}
+        Wait Until Element Is Visible    ${locationCardName}    10s
+        Clear Element Text    ${locationCardName}
+        Input Text    ${locationCardName}    ${userName}
         Sleep    2
-        Click Element    ${localExpDate}
+        Click Element    ${locationExpDate}
         ${epextMsg}    Read Excel Cell    ${index}    5
         ${resual1}=    Run Keyword And Return Status    Element Should Be Visible    ${msgErrorCardNumne}
         IF  ${resual1} == $True

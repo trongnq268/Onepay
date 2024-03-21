@@ -16,22 +16,22 @@ Create payment token merchant
     Input carNumber    9704360000000000002
     Input expDate    1123
     Input cardName    Nguyen van a 
-    Wait Until Element Is Enabled    ${localBtnThanhToan}
-    Click Button    ${localBtnThanhToan}
-    Wait Until Element Is Visible    ${localOtp}    15s
+    Wait Until Element Is Enabled    ${locationBtnThanhToan}
+    Click Button    ${locationBtnThanhToan}
+    Wait Until Element Is Visible    ${locationOtp}    15s
     Input OTP    ${otp}
-    Click Button    ${localBtnSubmitOtp}
+    Click Button    ${locationBtnSubmitOtp}
 
 Payment token merchant
     [Arguments]    ${vpc_TokenNumber}    ${vpc_TokenExp}
-    Wait Until Element Is Visible    ${localTokenNumber}    15s
-    Input Text    ${localAmount}    1000000
-    Input Text    ${localTokenNumber}    ${vpc_TokenNumber}
-    Input Text    ${localTokenExp}    ${vpc_TokenExp}
+    Wait Until Element Is Visible    ${locationTokenNumber}    15s
+    Input Text    ${locationAmount}    1000000
+    Input Text    ${locationTokenNumber}    ${vpc_TokenNumber}
+    Input Text    ${locationTokenExp}    ${vpc_TokenExp}
     Click Button    ${btnPayNow}
-    Wait Until Element Is Visible    ${localOtp}    30s
+    Wait Until Element Is Visible    ${locationOtp}    30s
     Input OTP    123456
-    Click Button    ${localBtnSubmitOtp}
+    Click Button    ${locationBtnSubmitOtp}
 
 Create token onepay
     [Arguments]    ${txtThem}    ${txtUserID}    ${index}    
@@ -44,16 +44,27 @@ Create token onepay
     Input carNumber    9704360000000000002
     Input expDate    1123
     Input cardName    Nguyen van a 
-    Wait Until Element Is Enabled    ${localBtnThanhToan}
-    Click Button    ${localBtnThanhToan}
-    Wait Until Element Is Visible    ${localOtp}    15s
+    Wait Until Element Is Enabled    ${locationBtnThanhToan}
+    Click Button    ${locationBtnThanhToan}
+    Wait Until Element Is Visible    ${locationOtp}    15s
     Input OTP    123456
-    Click Button    ${localBtnSubmitOtp}
+    Click Button    ${locationBtnSubmitOtp}
 
 Payment Token Onepay
-    Click Element    ${localToken}
-    Wait Until Element Is Visible    ${localBtnThanhToanToken}
-    Click Element    ${localBtnThanhToanToken}
-    Wait Until Element Is Visible    ${localOtp}    15s
+    Click Element    ${locationToken}
+    Wait Until Element Is Visible    ${locationBtnThanhToanToken}
+    Click Element    ${locationBtnThanhToanToken}
+    Wait Until Element Is Visible    ${locationOtp}    15s
     Input OTP    123456
-    Click Button    ${localBtnSubmitOtp}
+    Click Button    ${locationBtnSubmitOtp}
+
+Select token
+    Click Element    ${locationToken}
+    
+Verify popup 
+    [Arguments]    ${txtHeaderPopup}   
+    Wait Until Element Is Visible    ${locationHeaderPopup}
+    Element Text Should Be    ${locationHeaderPopup}    ${txtHeaderPopup}
+
+
+    

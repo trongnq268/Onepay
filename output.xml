@@ -1,219 +1,296 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-03-18T23:44:26.009114" rpa="false" schemaversion="5">
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-03-21T23:36:03.865222" rpa="false" schemaversion="5">
 <suite id="s1" name="Tcspaygate" source="e:\Automation\Onepay\paygate\tests\ui_tests\tcspaygate.robot">
 <kw name="Open test brower" owner="Common" type="SETUP">
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2024-03-18T23:44:26.882471" level="INFO">${PAYGATE_URL} = https://dev.onepay.vn/client/qt/</msg>
+<msg time="2024-03-21T23:36:04.397277" level="INFO">${PAYGATE_URL} = https://dev.onepay.vn/client/qt/</msg>
 <arg>${PAYGATE_URL}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2024-03-18T23:44:26.882471" elapsed="0.003002"/>
+<status status="PASS" start="2024-03-21T23:36:04.397277" elapsed="0.002999"/>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:26.885473" level="INFO">Opening browser 'chrome' to base url 'https://dev.onepay.vn/client/qt/'.</msg>
+<msg time="2024-03-21T23:36:04.401275" level="INFO">Opening browser 'chrome' to base url 'https://dev.onepay.vn/client/qt/'.</msg>
 <arg>${PAYGATE_URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-03-18T23:44:26.885473" elapsed="3.468894"/>
+<status status="PASS" start="2024-03-21T23:36:04.400276" elapsed="2.917454"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-03-18T23:44:30.354367" elapsed="0.124831"/>
+<status status="PASS" start="2024-03-21T23:36:07.317730" elapsed="0.126965"/>
 </kw>
 <arg>${PAYGATE_URL}</arg>
 <arg>chrome</arg>
-<status status="PASS" start="2024-03-18T23:44:26.880964" elapsed="3.599232"/>
+<status status="PASS" start="2024-03-21T23:36:04.396278" elapsed="3.048417"/>
 </kw>
 <test id="s1-t1" name="Select bank" line="14">
+<kw name="Input Amount" owner="Paygate">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-21T23:36:07.447698" level="INFO">Typing text '10000000' into text field 'name:vpc_Amount'.</msg>
+<arg>${locationAmount}</arg>
+<arg>${txtAmount}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-21T23:36:07.446700" elapsed="0.148990"/>
+</kw>
+<arg>10000000</arg>
+<status status="PASS" start="2024-03-21T23:36:07.445698" elapsed="0.150991"/>
+</kw>
 <kw name="chon bank" owner="Paygate">
 <kw name="Paygate" owner="Paygate">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:30.483194" level="INFO">Typing text '1000000' into text field 'name:vpc_Amount'.</msg>
-<arg>${localAmount}</arg>
-<arg>1000000</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:30.482196" elapsed="0.193448"/>
-</kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:30.676641" level="INFO">Clicking button 'xpath://input[@value='Pay Now!']'.</msg>
+<msg time="2024-03-21T23:36:07.598704" level="INFO">Clicking button 'xpath://input[@value='Pay Now!']'.</msg>
 <arg>${btnPayNow}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:30.675644" elapsed="5.283195"/>
+<status status="PASS" start="2024-03-21T23:36:07.597688" elapsed="4.942654"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-03-18T23:44:37.960095" level="INFO">Slept 2 seconds.</msg>
+<msg time="2024-03-21T23:36:14.541784" level="INFO">Slept 2 seconds.</msg>
 <arg>2</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-03-18T23:44:35.958839" elapsed="2.001256"/>
+<status status="PASS" start="2024-03-21T23:36:12.541341" elapsed="2.000443"/>
 </kw>
-<status status="PASS" start="2024-03-18T23:44:30.482196" elapsed="7.477899"/>
+<status status="PASS" start="2024-03-21T23:36:07.597688" elapsed="6.944096"/>
 </kw>
 <kw name="Select domestic" owner="Paygate">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${radioDomestic}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:44:37.961121" elapsed="0.030075"/>
+<status status="PASS" start="2024-03-21T23:36:14.542801" elapsed="0.074456"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:37.991196" level="INFO">Clicking element 'id:domescard-radio'.</msg>
+<msg time="2024-03-21T23:36:14.618255" level="INFO">Clicking element 'id:domescard-radio'.</msg>
 <arg>${radioDomestic}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:37.991196" elapsed="0.079536"/>
+<status status="PASS" start="2024-03-21T23:36:14.617257" elapsed="0.080977"/>
 </kw>
-<status status="PASS" start="2024-03-18T23:44:37.960095" elapsed="0.110637"/>
+<status status="PASS" start="2024-03-21T23:36:14.541784" elapsed="0.156450"/>
 </kw>
 <kw name="Select bank" owner="Paygate">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${listBank}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:44:38.072728" elapsed="0.065512"/>
+<status status="PASS" start="2024-03-21T23:36:14.699234" elapsed="0.045974"/>
 </kw>
 <kw name="Get WebElements" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:38.183877" level="INFO">@{banks} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="07647dcf1281c6d23c0c06d98bcd2612", element="f.9959C4BFB571172578D43D784961B052.d.6CE01C61222839DDBE543467E6DE73F4.e.203")&gt; | &lt;selenium.webd...</msg>
+<msg time="2024-03-21T23:36:14.779196" level="INFO">@{banks} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="98528cd2a5cb701a168340d3aabc242a", element="f.D1198A5797D6D1391D39A9912BE99E64.d.5970EC0757EEDD8C73001826D854B2BC.e.197")&gt; | &lt;selenium.webd...</msg>
 <var>@{banks}</var>
 <arg>${listBank}</arg>
 <doc>Returns a list of WebElement objects matching the ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:38.139243" elapsed="0.045635"/>
+<status status="PASS" start="2024-03-21T23:36:14.746208" elapsed="0.032988"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:38.186384" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="07647dcf1281c6d23c0c06d98bcd2612", element="f.9959C4BFB571172578D43D784961B052.d.6CE01C61222839DDBE543467E6DE73F4.e.204")&gt;'.</msg>
+<msg time="2024-03-21T23:36:14.781195" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="98528cd2a5cb701a168340d3aabc242a", element="f.D1198A5797D6D1391D39A9912BE99E64.d.5970EC0757EEDD8C73001826D854B2BC.e.198")&gt;'.</msg>
 <arg>${banks}[${bankId}]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:38.184878" elapsed="0.246539"/>
+<status status="PASS" start="2024-03-21T23:36:14.780197" elapsed="0.155491"/>
 </kw>
 <arg>${index}</arg>
-<status status="PASS" start="2024-03-18T23:44:38.071731" elapsed="0.359686"/>
+<status status="PASS" start="2024-03-21T23:36:14.698234" elapsed="0.238453"/>
 </kw>
 <arg>1</arg>
-<status status="PASS" start="2024-03-18T23:44:30.481210" elapsed="7.950207"/>
+<status status="PASS" start="2024-03-21T23:36:07.596689" elapsed="7.339998"/>
 </kw>
 <kw name="Verify title bank" owner="Paygate">
 <kw name="Element Text Should Be" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:38.435416" level="INFO">Verifying element 'xpath://div[@class='d_title_card']' contains exact text 'Thanh toán qua Vietcombank'.</msg>
+<msg time="2024-03-21T23:36:14.942684" level="INFO">Verifying element 'xpath://div[@class='d_title_card']' contains exact text 'Thanh toán qua Vietcombank'.</msg>
 <arg>${titleCard}</arg>
 <arg>${expectTitle}</arg>
 <doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<status status="PASS" start="2024-03-18T23:44:38.435416" elapsed="0.055367"/>
+<status status="PASS" start="2024-03-21T23:36:14.941686" elapsed="0.143324"/>
 </kw>
 <arg>Thanh toán qua Vietcombank</arg>
-<status status="PASS" start="2024-03-18T23:44:38.432415" elapsed="0.059367"/>
+<status status="PASS" start="2024-03-21T23:36:14.940686" elapsed="0.144324"/>
 </kw>
 <kw name="Verify placeholder" owner="Paygate">
 <kw name="Get Element Attribute" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:38.526488" level="INFO">${placeholderCardNumber} = 9704 1234 5678 9123 012</msg>
+<msg time="2024-03-21T23:36:15.107512" level="INFO">${placeholderCardNumber} = 9704 1234 5678 9123 012</msg>
 <var>${placeholderCardNumber}</var>
-<arg>${localCardNumber}</arg>
+<arg>${locationCardNumber}</arg>
 <arg>placeholder</arg>
 <doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:38.494782" elapsed="0.031706"/>
+<status status="PASS" start="2024-03-21T23:36:15.086010" elapsed="0.022501"/>
 </kw>
 <kw name="Get Element Attribute" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:38.608106" level="INFO">${txtPlaceholderExpDate} = 12/18</msg>
+<msg time="2024-03-21T23:36:15.135495" level="INFO">${txtPlaceholderExpDate} = 12/18</msg>
 <var>${txtPlaceholderExpDate}</var>
-<arg>${localExpDate}</arg>
+<arg>${locationExpDate}</arg>
 <arg>placeholder</arg>
 <doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:38.527974" elapsed="0.080132"/>
+<status status="PASS" start="2024-03-21T23:36:15.108511" elapsed="0.026984"/>
 </kw>
 <kw name="Get Element Attribute" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:38.641209" level="INFO">${txtplaceholderCardName} = NGUYEN VAN A</msg>
+<msg time="2024-03-21T23:36:15.160480" level="INFO">${txtplaceholderCardName} = NGUYEN VAN A</msg>
 <var>${txtplaceholderCardName}</var>
-<arg>${localCardName}</arg>
+<arg>${locationCardName}</arg>
 <arg>placeholder</arg>
 <doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:38.609103" elapsed="0.032106"/>
+<status status="PASS" start="2024-03-21T23:36:15.135495" elapsed="0.025985"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${placeholderCardNumber}</arg>
 <arg>${txtPlaceholderCardNumber}</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-03-18T23:44:38.642209" elapsed="0.000000"/>
+<status status="PASS" start="2024-03-21T23:36:15.161480" elapsed="0.000000"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${txtPlaceholderExpDate}</arg>
 <arg>${txtPlaceholderExpDate}</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-03-18T23:44:38.642209" elapsed="0.000999"/>
+<status status="PASS" start="2024-03-21T23:36:15.162480" elapsed="0.000000"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${txtplaceholderCardName}</arg>
 <arg>${txtplaceholderCardName}</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-03-18T23:44:38.643208" elapsed="0.000000"/>
+<status status="PASS" start="2024-03-21T23:36:15.162480" elapsed="0.000000"/>
 </kw>
 <arg>9704 1234 5678 9123 012</arg>
 <arg>12/18</arg>
 <arg>NGUYEN VAN A</arg>
-<status status="PASS" start="2024-03-18T23:44:38.492781" elapsed="0.150427"/>
+<status status="PASS" start="2024-03-21T23:36:15.085010" elapsed="0.078468"/>
 </kw>
 <tag>select bank</tag>
-<status status="PASS" start="2024-03-18T23:44:30.480196" elapsed="8.164011"/>
+<status status="PASS" start="2024-03-21T23:36:07.445698" elapsed="7.717780"/>
 </test>
-<test id="s1-t2" name="Validate data" line="19">
+<test id="s1-t2" name="Validate data" line="20">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-03-21T23:36:15.167476" level="INFO">Opening url 'https://dev.onepay.vn/client/qt/'</msg>
+<arg>${PAYGATE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-03-21T23:36:15.166480" elapsed="0.151181"/>
+</kw>
+<kw name="Input Amount" owner="Paygate">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-21T23:36:15.320660" level="INFO">Typing text '10000000' into text field 'name:vpc_Amount'.</msg>
+<arg>${locationAmount}</arg>
+<arg>${txtAmount}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-21T23:36:15.319661" elapsed="0.117460"/>
+</kw>
+<arg>10000000</arg>
+<status status="PASS" start="2024-03-21T23:36:15.319661" elapsed="0.117460"/>
+</kw>
+<kw name="chon bank" owner="Paygate">
+<kw name="Paygate" owner="Paygate">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-03-21T23:36:15.441119" level="INFO">Clicking button 'xpath://input[@value='Pay Now!']'.</msg>
+<arg>${btnPayNow}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-21T23:36:15.440125" elapsed="0.660256"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-03-21T23:36:18.101742" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-03-21T23:36:16.101380" elapsed="2.000362"/>
+</kw>
+<status status="PASS" start="2024-03-21T23:36:15.439120" elapsed="2.663125"/>
+</kw>
+<kw name="Select domestic" owner="Paygate">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${radioDomestic}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-03-21T23:36:18.103247" elapsed="0.023987"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-21T23:36:18.128235" level="INFO">Clicking element 'id:domescard-radio'.</msg>
+<arg>${radioDomestic}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-21T23:36:18.128235" elapsed="0.239405"/>
+</kw>
+<status status="PASS" start="2024-03-21T23:36:18.102245" elapsed="0.266395"/>
+</kw>
+<kw name="Select bank" owner="Paygate">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${listBank}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-03-21T23:36:18.368640" elapsed="0.109888"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-03-21T23:36:18.547999" level="INFO">@{banks} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="98528cd2a5cb701a168340d3aabc242a", element="f.D1198A5797D6D1391D39A9912BE99E64.d.309462555BEDC2ED19260563373E9C08.e.585")&gt; | &lt;selenium.webd...</msg>
+<var>@{banks}</var>
+<arg>${listBank}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-03-21T23:36:18.479527" elapsed="0.069471"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-21T23:36:18.549997" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="98528cd2a5cb701a168340d3aabc242a", element="f.D1198A5797D6D1391D39A9912BE99E64.d.309462555BEDC2ED19260563373E9C08.e.586")&gt;'.</msg>
+<arg>${banks}[${bankId}]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-21T23:36:18.548998" elapsed="0.063003"/>
+</kw>
+<arg>${index}</arg>
+<status status="PASS" start="2024-03-21T23:36:18.368640" elapsed="0.244360"/>
+</kw>
+<arg>1</arg>
+<status status="PASS" start="2024-03-21T23:36:15.438121" elapsed="3.174879"/>
+</kw>
 <kw name="Open Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <arg>sheet1</arg>
 <doc>Opens xlsx document file.</doc>
-<status status="PASS" start="2024-03-18T23:44:38.645206" elapsed="0.062510"/>
+<status status="PASS" start="2024-03-21T23:36:18.613000" elapsed="0.008994"/>
 </kw>
 <kw name="Validate cardNumber" owner="Paygate">
 <for flavor="IN RANGE">
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2024-03-18T23:44:38.710739" level="INFO">${cardNumber} = 9704360000000000002</msg>
+<msg time="2024-03-21T23:36:18.624993" level="INFO">${cardNumber} = 9704360000000000002</msg>
 <var>${cardNumber}</var>
 <arg>${index}</arg>
 <arg>2</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2024-03-18T23:44:38.710739" elapsed="0.000000"/>
+<status status="PASS" start="2024-03-21T23:36:18.623993" elapsed="0.001000"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${localCardNumber}</arg>
+<arg>${locationCardNumber}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:44:38.711738" elapsed="0.019916"/>
+<status status="PASS" start="2024-03-21T23:36:18.624993" elapsed="0.020987"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:38.732654" level="INFO">Typing text '9704360000000000002' into text field 'id:card_number'.</msg>
-<arg>${localCardNumber}</arg>
+<msg time="2024-03-21T23:36:18.646982" level="INFO">Typing text '9704360000000000002' into text field 'id:card_number'.</msg>
+<arg>${locationCardNumber}</arg>
 <arg>${cardNumber}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:38.732654" elapsed="0.152379"/>
+<status status="PASS" start="2024-03-21T23:36:18.645980" elapsed="0.163496"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:38.885033" level="INFO">Clicking element 'id:exp_date'.</msg>
-<arg>${localExpDate}</arg>
+<msg time="2024-03-21T23:36:18.813477" level="INFO">Clicking element 'id:exp_date'.</msg>
+<arg>${locationExpDate}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:38.885033" elapsed="0.066173"/>
+<status status="PASS" start="2024-03-21T23:36:18.811484" elapsed="0.069484"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:39.196935" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2024-03-18T23:44:39.197440" level="FAIL">Element with locator 'xpath://div[@class='form-field form-field-big']//span[@class='error']' not found.</msg>
+<msg time="2024-03-21T23:36:19.117452" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-03-21T23:36:19.117452" level="FAIL">Element with locator 'xpath://div[@class='form-field form-field-big']//span[@class='error']' not found.</msg>
 <arg>${msgErrorCardNumne}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="FAIL" start="2024-03-18T23:44:38.951206" elapsed="0.253240">Element with locator 'xpath://div[@class='form-field form-field-big']//span[@class='error']' not found.</status>
+<status status="FAIL" start="2024-03-21T23:36:18.881966" elapsed="0.238486">Element with locator 'xpath://div[@class='form-field form-field-big']//span[@class='error']' not found.</status>
 </kw>
-<msg time="2024-03-18T23:44:39.204446" level="INFO">${resual1} = False</msg>
+<msg time="2024-03-21T23:36:19.120452" level="INFO">${resual1} = False</msg>
 <var>${resual1}</var>
 <arg>Element Should Be Visible</arg>
 <arg>${msgErrorCardNumne}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2024-03-18T23:44:38.951206" elapsed="0.253240"/>
+<status status="PASS" start="2024-03-21T23:36:18.881966" elapsed="0.238486"/>
 </kw>
 <if>
 <branch type="IF" condition="${resual1} == $True">
 <kw name="Log" owner="BuiltIn">
 <arg>test</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:39.204446" elapsed="0.001000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:19.121449" elapsed="0.000000"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
 <var>${epextMsg}</var>
 <arg>${index}</arg>
 <arg>5</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:39.205446" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:19.121449" elapsed="0.001001"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <var>${resual2}</var>
@@ -221,7 +298,7 @@
 <arg>${msgErrorCardNumne}</arg>
 <arg>${epextMsg}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:39.205446" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:19.122450" elapsed="0.000000"/>
 </kw>
 <if>
 <branch type="IF" condition="${resual2} == True">
@@ -230,14 +307,14 @@
 <arg>6</arg>
 <arg>PASS</arg>
 <doc>Writes value to the cell.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:39.205446" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:19.123464" elapsed="0.000000"/>
 </kw>
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:39.205446" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:19.123464" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2024-03-18T23:44:39.205446" elapsed="0.001505"/>
+<status status="NOT RUN" start="2024-03-21T23:36:19.122450" elapsed="0.001014"/>
 </branch>
 <branch type="ELSE">
 <kw name="Write Excel Cell" owner="ExcelLibrary">
@@ -245,18 +322,18 @@
 <arg>6</arg>
 <arg>FAIL</arg>
 <doc>Writes value to the cell.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:39.206951" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:19.124468" elapsed="0.000000"/>
 </kw>
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:39.206951" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:19.124468" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2024-03-18T23:44:39.206951" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:19.123464" elapsed="0.001004"/>
 </branch>
-<status status="NOT RUN" start="2024-03-18T23:44:39.205446" elapsed="0.001505"/>
+<status status="NOT RUN" start="2024-03-21T23:36:19.122450" elapsed="0.002018"/>
 </if>
-<status status="NOT RUN" start="2024-03-18T23:44:39.204446" elapsed="0.002505"/>
+<status status="NOT RUN" start="2024-03-21T23:36:19.120452" elapsed="0.004016"/>
 </branch>
 <branch type="ELSE">
 <kw name="Write Excel Cell" owner="ExcelLibrary">
@@ -264,95 +341,95 @@
 <arg>6</arg>
 <arg>PASS</arg>
 <doc>Writes value to the cell.</doc>
-<status status="PASS" start="2024-03-18T23:44:39.207967" elapsed="0.000000"/>
+<status status="PASS" start="2024-03-21T23:36:19.125449" elapsed="0.000000"/>
 </kw>
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="PASS" start="2024-03-18T23:44:39.207967" elapsed="0.041711"/>
+<status status="PASS" start="2024-03-21T23:36:19.125449" elapsed="0.024999"/>
 </kw>
-<status status="PASS" start="2024-03-18T23:44:39.206951" elapsed="0.042727"/>
+<status status="PASS" start="2024-03-21T23:36:19.124468" elapsed="0.026970"/>
 </branch>
-<status status="PASS" start="2024-03-18T23:44:39.204446" elapsed="0.045232"/>
+<status status="PASS" start="2024-03-21T23:36:19.120452" elapsed="0.030986"/>
 </if>
 <var name="${index}">2</var>
-<status status="PASS" start="2024-03-18T23:44:38.710739" elapsed="0.538939"/>
+<status status="PASS" start="2024-03-21T23:36:18.623993" elapsed="0.527445"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2024-03-18T23:44:39.250678" level="INFO">${cardNumber} = 9.7043600000001e+18</msg>
+<msg time="2024-03-21T23:36:19.152449" level="INFO">${cardNumber} = 9.7043600000001e+18</msg>
 <var>${cardNumber}</var>
 <arg>${index}</arg>
 <arg>2</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2024-03-18T23:44:39.250678" elapsed="0.001000"/>
+<status status="PASS" start="2024-03-21T23:36:19.151438" elapsed="0.001011"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${localCardNumber}</arg>
+<arg>${locationCardNumber}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:44:39.251678" elapsed="0.075400"/>
+<status status="PASS" start="2024-03-21T23:36:19.152449" elapsed="0.025995"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:39.327583" level="INFO">Typing text '9.7043600000001e+18' into text field 'id:card_number'.</msg>
-<arg>${localCardNumber}</arg>
+<msg time="2024-03-21T23:36:19.179440" level="INFO">Typing text '9.7043600000001e+18' into text field 'id:card_number'.</msg>
+<arg>${locationCardNumber}</arg>
 <arg>${cardNumber}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:39.327583" elapsed="0.203908"/>
+<status status="PASS" start="2024-03-21T23:36:19.178444" elapsed="0.197087"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:39.534497" level="INFO">Clicking element 'id:exp_date'.</msg>
-<arg>${localExpDate}</arg>
+<msg time="2024-03-21T23:36:19.377534" level="INFO">Clicking element 'id:exp_date'.</msg>
+<arg>${locationExpDate}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:39.533491" elapsed="0.062188"/>
+<status status="PASS" start="2024-03-21T23:36:19.376532" elapsed="0.048483"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:39.628317" level="INFO">Element 'xpath://div[@class='form-field form-field-big']//span[@class='error']' is displayed.</msg>
+<msg time="2024-03-21T23:36:19.447999" level="INFO">Element 'xpath://div[@class='form-field form-field-big']//span[@class='error']' is displayed.</msg>
 <arg>${msgErrorCardNumne}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:44:39.597184" elapsed="0.032140"/>
+<status status="PASS" start="2024-03-21T23:36:19.426012" elapsed="0.021987"/>
 </kw>
-<msg time="2024-03-18T23:44:39.629324" level="INFO">${resual1} = True</msg>
+<msg time="2024-03-21T23:36:19.449000" level="INFO">${resual1} = True</msg>
 <var>${resual1}</var>
 <arg>Element Should Be Visible</arg>
 <arg>${msgErrorCardNumne}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2024-03-18T23:44:39.597184" elapsed="0.032140"/>
+<status status="PASS" start="2024-03-21T23:36:19.425015" elapsed="0.023985"/>
 </kw>
 <if>
 <branch type="IF" condition="${resual1} == $True">
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-03-18T23:44:39.630321" level="INFO">test</msg>
+<msg time="2024-03-21T23:36:19.449999" level="INFO">test</msg>
 <arg>test</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-03-18T23:44:39.630321" elapsed="0.000000"/>
+<status status="PASS" start="2024-03-21T23:36:19.449000" elapsed="0.000999"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2024-03-18T23:44:39.632321" level="INFO">${epextMsg} = Số thẻ không đúng 1</msg>
+<msg time="2024-03-21T23:36:19.449999" level="INFO">${epextMsg} = Số thẻ không đúng 1</msg>
 <var>${epextMsg}</var>
 <arg>${index}</arg>
 <arg>5</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2024-03-18T23:44:39.631320" elapsed="0.001001"/>
+<status status="PASS" start="2024-03-21T23:36:19.449999" elapsed="0.000000"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Element Text Should Be" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:39.634321" level="INFO">Verifying element 'xpath://div[@class='form-field form-field-big']//span[@class='error']' contains exact text 'Số thẻ không đúng 1'.</msg>
-<msg time="2024-03-18T23:44:39.877077" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2024-03-18T23:44:39.877077" level="FAIL">The text of element 'xpath://div[@class='form-field form-field-big']//span[@class='error']' should have been 'Số thẻ không đúng 1' but it was 'Số thẻ không đúng'.</msg>
+<msg time="2024-03-21T23:36:19.450999" level="INFO">Verifying element 'xpath://div[@class='form-field form-field-big']//span[@class='error']' contains exact text 'Số thẻ không đúng 1'.</msg>
+<msg time="2024-03-21T23:36:19.694025" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-03-21T23:36:19.695011" level="FAIL">The text of element 'xpath://div[@class='form-field form-field-big']//span[@class='error']' should have been 'Số thẻ không đúng 1' but it was 'Số thẻ không đúng'.</msg>
 <arg>${msgErrorCardNumne}</arg>
 <arg>${epextMsg}</arg>
 <doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<status status="FAIL" start="2024-03-18T23:44:39.634321" elapsed="0.244217">The text of element 'xpath://div[@class='form-field form-field-big']//span[@class='error']' should have been 'Số thẻ không đúng 1' but it was 'Số thẻ không đúng'.</status>
+<status status="FAIL" start="2024-03-21T23:36:19.450999" elapsed="0.245011">The text of element 'xpath://div[@class='form-field form-field-big']//span[@class='error']' should have been 'Số thẻ không đúng 1' but it was 'Số thẻ không đúng'.</status>
 </kw>
-<msg time="2024-03-18T23:44:39.878538" level="INFO">${resual2} = False</msg>
+<msg time="2024-03-21T23:36:19.696010" level="INFO">${resual2} = False</msg>
 <var>${resual2}</var>
 <arg>Element Text Should Be</arg>
 <arg>${msgErrorCardNumne}</arg>
 <arg>${epextMsg}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2024-03-18T23:44:39.633320" elapsed="0.245218"/>
+<status status="PASS" start="2024-03-21T23:36:19.450999" elapsed="0.245011"/>
 </kw>
 <if>
 <branch type="IF" condition="${resual2} == True">
@@ -361,14 +438,14 @@
 <arg>6</arg>
 <arg>PASS</arg>
 <doc>Writes value to the cell.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:39.879542" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:19.697010" elapsed="0.000000"/>
 </kw>
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:39.879542" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:19.697010" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2024-03-18T23:44:39.879542" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:19.696010" elapsed="0.001000"/>
 </branch>
 <branch type="ELSE">
 <kw name="Write Excel Cell" owner="ExcelLibrary">
@@ -376,18 +453,18 @@
 <arg>6</arg>
 <arg>FAIL</arg>
 <doc>Writes value to the cell.</doc>
-<status status="PASS" start="2024-03-18T23:44:39.880541" elapsed="0.000000"/>
+<status status="PASS" start="2024-03-21T23:36:19.698009" elapsed="0.000000"/>
 </kw>
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="PASS" start="2024-03-18T23:44:39.880541" elapsed="0.033341"/>
+<status status="PASS" start="2024-03-21T23:36:19.698009" elapsed="0.022988"/>
 </kw>
-<status status="PASS" start="2024-03-18T23:44:39.880541" elapsed="0.033341"/>
+<status status="PASS" start="2024-03-21T23:36:19.698009" elapsed="0.022988"/>
 </branch>
-<status status="PASS" start="2024-03-18T23:44:39.879542" elapsed="0.035340"/>
+<status status="PASS" start="2024-03-21T23:36:19.696010" elapsed="0.024987"/>
 </if>
-<status status="PASS" start="2024-03-18T23:44:39.629324" elapsed="0.285558"/>
+<status status="PASS" start="2024-03-21T23:36:19.449000" elapsed="0.271997"/>
 </branch>
 <branch type="ELSE">
 <kw name="Write Excel Cell" owner="ExcelLibrary">
@@ -395,93 +472,93 @@
 <arg>6</arg>
 <arg>PASS</arg>
 <doc>Writes value to the cell.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:39.915881" elapsed="0.001001"/>
+<status status="NOT RUN" start="2024-03-21T23:36:19.721996" elapsed="0.001001"/>
 </kw>
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:39.917390" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:19.722997" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2024-03-18T23:44:39.914882" elapsed="0.002508"/>
+<status status="NOT RUN" start="2024-03-21T23:36:19.720997" elapsed="0.002998"/>
 </branch>
-<status status="PASS" start="2024-03-18T23:44:39.629324" elapsed="0.288066"/>
+<status status="PASS" start="2024-03-21T23:36:19.449000" elapsed="0.274995"/>
 </if>
 <var name="${index}">3</var>
-<status status="PASS" start="2024-03-18T23:44:39.250678" elapsed="0.667718"/>
+<status status="PASS" start="2024-03-21T23:36:19.151438" elapsed="0.572557"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2024-03-18T23:44:39.921405" level="INFO">${cardNumber} = None</msg>
+<msg time="2024-03-21T23:36:19.724994" level="INFO">${cardNumber} = None</msg>
 <var>${cardNumber}</var>
 <arg>${index}</arg>
 <arg>2</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2024-03-18T23:44:39.920406" elapsed="0.000999"/>
+<status status="PASS" start="2024-03-21T23:36:19.724994" elapsed="0.000999"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${localCardNumber}</arg>
+<arg>${locationCardNumber}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:44:39.922419" elapsed="0.027866"/>
+<status status="PASS" start="2024-03-21T23:36:19.725993" elapsed="0.019988"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:39.951285" level="INFO">Typing text 'None' into text field 'id:card_number'.</msg>
-<arg>${localCardNumber}</arg>
+<msg time="2024-03-21T23:36:19.746983" level="INFO">Typing text 'None' into text field 'id:card_number'.</msg>
+<arg>${locationCardNumber}</arg>
 <arg>${cardNumber}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:39.951285" elapsed="0.088028"/>
+<status status="PASS" start="2024-03-21T23:36:19.746983" elapsed="0.119468"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:40.040314" level="INFO">Clicking element 'id:exp_date'.</msg>
-<arg>${localExpDate}</arg>
+<msg time="2024-03-21T23:36:19.867451" level="INFO">Clicking element 'id:exp_date'.</msg>
+<arg>${locationExpDate}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.040314" elapsed="0.047507"/>
+<status status="PASS" start="2024-03-21T23:36:19.866451" elapsed="0.054259"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:40.112217" level="INFO">Element 'xpath://div[@class='form-field form-field-big']//span[@class='error']' is displayed.</msg>
+<msg time="2024-03-21T23:36:19.944699" level="INFO">Element 'xpath://div[@class='form-field form-field-big']//span[@class='error']' is displayed.</msg>
 <arg>${msgErrorCardNumne}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.089824" elapsed="0.022393"/>
+<status status="PASS" start="2024-03-21T23:36:19.922710" elapsed="0.021989"/>
 </kw>
-<msg time="2024-03-18T23:44:40.112217" level="INFO">${resual1} = True</msg>
+<msg time="2024-03-21T23:36:19.945695" level="INFO">${resual1} = True</msg>
 <var>${resual1}</var>
 <arg>Element Should Be Visible</arg>
 <arg>${msgErrorCardNumne}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.088826" elapsed="0.023391"/>
+<status status="PASS" start="2024-03-21T23:36:19.920710" elapsed="0.024985"/>
 </kw>
 <if>
 <branch type="IF" condition="${resual1} == $True">
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-03-18T23:44:40.113216" level="INFO">test</msg>
+<msg time="2024-03-21T23:36:19.945695" level="INFO">test</msg>
 <arg>test</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.113216" elapsed="0.000000"/>
+<status status="PASS" start="2024-03-21T23:36:19.945695" elapsed="0.000999"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2024-03-18T23:44:40.113216" level="INFO">${epextMsg} = Không hợp lệ</msg>
+<msg time="2024-03-21T23:36:19.946694" level="INFO">${epextMsg} = Không hợp lệ</msg>
 <var>${epextMsg}</var>
 <arg>${index}</arg>
 <arg>5</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.113216" elapsed="0.000999"/>
+<status status="PASS" start="2024-03-21T23:36:19.946694" elapsed="0.000000"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Element Text Should Be" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:40.114215" level="INFO">Verifying element 'xpath://div[@class='form-field form-field-big']//span[@class='error']' contains exact text 'Không hợp lệ'.</msg>
+<msg time="2024-03-21T23:36:19.947694" level="INFO">Verifying element 'xpath://div[@class='form-field form-field-big']//span[@class='error']' contains exact text 'Không hợp lệ'.</msg>
 <arg>${msgErrorCardNumne}</arg>
 <arg>${epextMsg}</arg>
 <doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.114215" elapsed="0.019770"/>
+<status status="PASS" start="2024-03-21T23:36:19.947694" elapsed="0.017990"/>
 </kw>
-<msg time="2024-03-18T23:44:40.133985" level="INFO">${resual2} = True</msg>
+<msg time="2024-03-21T23:36:19.965684" level="INFO">${resual2} = True</msg>
 <var>${resual2}</var>
 <arg>Element Text Should Be</arg>
 <arg>${msgErrorCardNumne}</arg>
 <arg>${epextMsg}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.114215" elapsed="0.019770"/>
+<status status="PASS" start="2024-03-21T23:36:19.946694" elapsed="0.018990"/>
 </kw>
 <if>
 <branch type="IF" condition="${resual2} == True">
@@ -490,14 +567,14 @@
 <arg>6</arg>
 <arg>PASS</arg>
 <doc>Writes value to the cell.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.134985" elapsed="0.000000"/>
+<status status="PASS" start="2024-03-21T23:36:19.966683" elapsed="0.000000"/>
 </kw>
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.134985" elapsed="0.012248"/>
+<status status="PASS" start="2024-03-21T23:36:19.966683" elapsed="0.012000"/>
 </kw>
-<status status="PASS" start="2024-03-18T23:44:40.134985" elapsed="0.012248"/>
+<status status="PASS" start="2024-03-21T23:36:19.965684" elapsed="0.014000"/>
 </branch>
 <branch type="ELSE">
 <kw name="Write Excel Cell" owner="ExcelLibrary">
@@ -505,18 +582,18 @@
 <arg>6</arg>
 <arg>FAIL</arg>
 <doc>Writes value to the cell.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:40.147737" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:19.979684" elapsed="0.000000"/>
 </kw>
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:40.147737" elapsed="0.048184"/>
+<status status="NOT RUN" start="2024-03-21T23:36:19.979684" elapsed="0.000999"/>
 </kw>
-<status status="NOT RUN" start="2024-03-18T23:44:40.147737" elapsed="0.048184"/>
+<status status="NOT RUN" start="2024-03-21T23:36:19.979684" elapsed="0.000999"/>
 </branch>
-<status status="PASS" start="2024-03-18T23:44:40.134985" elapsed="0.061935"/>
+<status status="PASS" start="2024-03-21T23:36:19.965684" elapsed="0.014999"/>
 </if>
-<status status="PASS" start="2024-03-18T23:44:40.112217" elapsed="0.084703"/>
+<status status="PASS" start="2024-03-21T23:36:19.945695" elapsed="0.034988"/>
 </branch>
 <branch type="ELSE">
 <kw name="Write Excel Cell" owner="ExcelLibrary">
@@ -524,93 +601,93 @@
 <arg>6</arg>
 <arg>PASS</arg>
 <doc>Writes value to the cell.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:40.197427" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:19.980683" elapsed="0.000000"/>
 </kw>
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:40.197427" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:19.980683" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2024-03-18T23:44:40.196920" elapsed="0.000507"/>
+<status status="NOT RUN" start="2024-03-21T23:36:19.980683" elapsed="0.000999"/>
 </branch>
-<status status="PASS" start="2024-03-18T23:44:40.112217" elapsed="0.085210"/>
+<status status="PASS" start="2024-03-21T23:36:19.945695" elapsed="0.035987"/>
 </if>
 <var name="${index}">4</var>
-<status status="PASS" start="2024-03-18T23:44:39.919409" elapsed="0.278018"/>
+<status status="PASS" start="2024-03-21T23:36:19.724994" elapsed="0.256688"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2024-03-18T23:44:40.199729" level="INFO">${cardNumber} = #$$sdhdasdd$$$</msg>
+<msg time="2024-03-21T23:36:19.982681" level="INFO">${cardNumber} = #$$sdhdasdd$$$</msg>
 <var>${cardNumber}</var>
 <arg>${index}</arg>
 <arg>2</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.198724" elapsed="0.001005"/>
+<status status="PASS" start="2024-03-21T23:36:19.981682" elapsed="0.000999"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${localCardNumber}</arg>
+<arg>${locationCardNumber}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.199729" elapsed="0.076181"/>
+<status status="PASS" start="2024-03-21T23:36:19.982681" elapsed="0.060992"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:40.277417" level="INFO">Typing text '#$$sdhdasdd$$$' into text field 'id:card_number'.</msg>
-<arg>${localCardNumber}</arg>
+<msg time="2024-03-21T23:36:20.044673" level="INFO">Typing text '#$$sdhdasdd$$$' into text field 'id:card_number'.</msg>
+<arg>${locationCardNumber}</arg>
 <arg>${cardNumber}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.277417" elapsed="0.116639"/>
+<status status="PASS" start="2024-03-21T23:36:20.043673" elapsed="0.135955"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:40.395053" level="INFO">Clicking element 'id:exp_date'.</msg>
-<arg>${localExpDate}</arg>
+<msg time="2024-03-21T23:36:20.180627" level="INFO">Clicking element 'id:exp_date'.</msg>
+<arg>${locationExpDate}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.395053" elapsed="0.067804"/>
+<status status="PASS" start="2024-03-21T23:36:20.179628" elapsed="0.097010"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:40.491536" level="INFO">Element 'xpath://div[@class='form-field form-field-big']//span[@class='error']' is displayed.</msg>
+<msg time="2024-03-21T23:36:20.310122" level="INFO">Element 'xpath://div[@class='form-field form-field-big']//span[@class='error']' is displayed.</msg>
 <arg>${msgErrorCardNumne}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.463856" elapsed="0.028676"/>
+<status status="PASS" start="2024-03-21T23:36:20.277632" elapsed="0.032490"/>
 </kw>
-<msg time="2024-03-18T23:44:40.492532" level="INFO">${resual1} = True</msg>
+<msg time="2024-03-21T23:36:20.310122" level="INFO">${resual1} = True</msg>
 <var>${resual1}</var>
 <arg>Element Should Be Visible</arg>
 <arg>${msgErrorCardNumne}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.463856" elapsed="0.028676"/>
+<status status="PASS" start="2024-03-21T23:36:20.276638" elapsed="0.033484"/>
 </kw>
 <if>
 <branch type="IF" condition="${resual1} == $True">
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-03-18T23:44:40.493531" level="INFO">test</msg>
+<msg time="2024-03-21T23:36:20.312121" level="INFO">test</msg>
 <arg>test</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.493531" elapsed="0.000000"/>
+<status status="PASS" start="2024-03-21T23:36:20.311122" elapsed="0.000999"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2024-03-18T23:44:40.493531" level="INFO">${epextMsg} = Không hợp lệ</msg>
+<msg time="2024-03-21T23:36:20.313120" level="INFO">${epextMsg} = Không hợp lệ</msg>
 <var>${epextMsg}</var>
 <arg>${index}</arg>
 <arg>5</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.493531" elapsed="0.000999"/>
+<status status="PASS" start="2024-03-21T23:36:20.312121" elapsed="0.000999"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Element Text Should Be" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:40.494530" level="INFO">Verifying element 'xpath://div[@class='form-field form-field-big']//span[@class='error']' contains exact text 'Không hợp lệ'.</msg>
+<msg time="2024-03-21T23:36:20.314120" level="INFO">Verifying element 'xpath://div[@class='form-field form-field-big']//span[@class='error']' contains exact text 'Không hợp lệ'.</msg>
 <arg>${msgErrorCardNumne}</arg>
 <arg>${epextMsg}</arg>
 <doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.494530" elapsed="0.018039"/>
+<status status="PASS" start="2024-03-21T23:36:20.313120" elapsed="0.019989"/>
 </kw>
-<msg time="2024-03-18T23:44:40.512569" level="INFO">${resual2} = True</msg>
+<msg time="2024-03-21T23:36:20.333109" level="INFO">${resual2} = True</msg>
 <var>${resual2}</var>
 <arg>Element Text Should Be</arg>
 <arg>${msgErrorCardNumne}</arg>
 <arg>${epextMsg}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.494530" elapsed="0.018039"/>
+<status status="PASS" start="2024-03-21T23:36:20.313120" elapsed="0.019989"/>
 </kw>
 <if>
 <branch type="IF" condition="${resual2} == True">
@@ -619,14 +696,14 @@
 <arg>6</arg>
 <arg>PASS</arg>
 <doc>Writes value to the cell.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.513568" elapsed="0.000000"/>
+<status status="PASS" start="2024-03-21T23:36:20.334110" elapsed="0.000000"/>
 </kw>
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.513568" elapsed="0.011533"/>
+<status status="PASS" start="2024-03-21T23:36:20.335109" elapsed="0.012991"/>
 </kw>
-<status status="PASS" start="2024-03-18T23:44:40.512569" elapsed="0.013530"/>
+<status status="PASS" start="2024-03-21T23:36:20.334110" elapsed="0.014990"/>
 </branch>
 <branch type="ELSE">
 <kw name="Write Excel Cell" owner="ExcelLibrary">
@@ -634,18 +711,18 @@
 <arg>6</arg>
 <arg>FAIL</arg>
 <doc>Writes value to the cell.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:40.526099" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:20.349100" elapsed="0.000000"/>
 </kw>
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:40.526099" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:20.349100" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2024-03-18T23:44:40.526099" elapsed="0.001000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:20.349100" elapsed="0.001000"/>
 </branch>
-<status status="PASS" start="2024-03-18T23:44:40.512569" elapsed="0.014530"/>
+<status status="PASS" start="2024-03-21T23:36:20.334110" elapsed="0.015990"/>
 </if>
-<status status="PASS" start="2024-03-18T23:44:40.492532" elapsed="0.034567"/>
+<status status="PASS" start="2024-03-21T23:36:20.311122" elapsed="0.038978"/>
 </branch>
 <branch type="ELSE">
 <kw name="Write Excel Cell" owner="ExcelLibrary">
@@ -653,93 +730,93 @@
 <arg>6</arg>
 <arg>PASS</arg>
 <doc>Writes value to the cell.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:40.527606" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:20.350100" elapsed="0.000000"/>
 </kw>
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:40.527606" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:20.350100" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2024-03-18T23:44:40.527099" elapsed="0.000507"/>
+<status status="NOT RUN" start="2024-03-21T23:36:20.350100" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2024-03-18T23:44:40.492532" elapsed="0.035074"/>
+<status status="PASS" start="2024-03-21T23:36:20.311122" elapsed="0.039976"/>
 </if>
 <var name="${index}">5</var>
-<status status="PASS" start="2024-03-18T23:44:40.197427" elapsed="0.330179"/>
+<status status="PASS" start="2024-03-21T23:36:19.981682" elapsed="0.369416"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2024-03-18T23:44:40.528610" level="INFO">${cardNumber} = 9704270000000009</msg>
+<msg time="2024-03-21T23:36:20.351098" level="INFO">${cardNumber} = 9704270000000009</msg>
 <var>${cardNumber}</var>
 <arg>${index}</arg>
 <arg>2</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.528610" elapsed="0.000000"/>
+<status status="PASS" start="2024-03-21T23:36:20.351098" elapsed="0.000999"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${localCardNumber}</arg>
+<arg>${locationCardNumber}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.528610" elapsed="0.025848"/>
+<status status="PASS" start="2024-03-21T23:36:20.352097" elapsed="0.017994"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:40.555457" level="INFO">Typing text '9704270000000009' into text field 'id:card_number'.</msg>
-<arg>${localCardNumber}</arg>
+<msg time="2024-03-21T23:36:20.371090" level="INFO">Typing text '9704270000000009' into text field 'id:card_number'.</msg>
+<arg>${locationCardNumber}</arg>
 <arg>${cardNumber}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.554458" elapsed="0.133560"/>
+<status status="PASS" start="2024-03-21T23:36:20.371090" elapsed="0.107974"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:40.689020" level="INFO">Clicking element 'id:exp_date'.</msg>
-<arg>${localExpDate}</arg>
+<msg time="2024-03-21T23:36:20.480062" level="INFO">Clicking element 'id:exp_date'.</msg>
+<arg>${locationExpDate}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.688018" elapsed="0.050500"/>
+<status status="PASS" start="2024-03-21T23:36:20.480062" elapsed="0.049010"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:40.761466" level="INFO">Element 'xpath://div[@class='form-field form-field-big']//span[@class='error']' is displayed.</msg>
+<msg time="2024-03-21T23:36:20.550063" level="INFO">Element 'xpath://div[@class='form-field form-field-big']//span[@class='error']' is displayed.</msg>
 <arg>${msgErrorCardNumne}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.740516" elapsed="0.020950"/>
+<status status="PASS" start="2024-03-21T23:36:20.530073" elapsed="0.019990"/>
 </kw>
-<msg time="2024-03-18T23:44:40.761466" level="INFO">${resual1} = True</msg>
+<msg time="2024-03-21T23:36:20.550063" level="INFO">${resual1} = True</msg>
 <var>${resual1}</var>
 <arg>Element Should Be Visible</arg>
 <arg>${msgErrorCardNumne}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.739517" elapsed="0.021949"/>
+<status status="PASS" start="2024-03-21T23:36:20.530073" elapsed="0.019990"/>
 </kw>
 <if>
 <branch type="IF" condition="${resual1} == $True">
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-03-18T23:44:40.762465" level="INFO">test</msg>
+<msg time="2024-03-21T23:36:20.551060" level="INFO">test</msg>
 <arg>test</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.762465" elapsed="0.000000"/>
+<status status="PASS" start="2024-03-21T23:36:20.551060" elapsed="0.000000"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2024-03-18T23:44:40.763464" level="INFO">${epextMsg} = Số thẻ không đúng</msg>
+<msg time="2024-03-21T23:36:20.552059" level="INFO">${epextMsg} = Số thẻ không đúng</msg>
 <var>${epextMsg}</var>
 <arg>${index}</arg>
 <arg>5</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.762465" elapsed="0.000999"/>
+<status status="PASS" start="2024-03-21T23:36:20.552059" elapsed="0.000000"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Element Text Should Be" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:40.763464" level="INFO">Verifying element 'xpath://div[@class='form-field form-field-big']//span[@class='error']' contains exact text 'Số thẻ không đúng'.</msg>
+<msg time="2024-03-21T23:36:20.553058" level="INFO">Verifying element 'xpath://div[@class='form-field form-field-big']//span[@class='error']' contains exact text 'Số thẻ không đúng'.</msg>
 <arg>${msgErrorCardNumne}</arg>
 <arg>${epextMsg}</arg>
 <doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.763464" elapsed="0.018121"/>
+<status status="PASS" start="2024-03-21T23:36:20.552059" elapsed="0.019989"/>
 </kw>
-<msg time="2024-03-18T23:44:40.782584" level="INFO">${resual2} = True</msg>
+<msg time="2024-03-21T23:36:20.572048" level="INFO">${resual2} = True</msg>
 <var>${resual2}</var>
 <arg>Element Text Should Be</arg>
 <arg>${msgErrorCardNumne}</arg>
 <arg>${epextMsg}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.763464" elapsed="0.019120"/>
+<status status="PASS" start="2024-03-21T23:36:20.552059" elapsed="0.020992"/>
 </kw>
 <if>
 <branch type="IF" condition="${resual2} == True">
@@ -748,14 +825,14 @@
 <arg>6</arg>
 <arg>PASS</arg>
 <doc>Writes value to the cell.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.783583" elapsed="0.000000"/>
+<status status="PASS" start="2024-03-21T23:36:20.573051" elapsed="0.001005"/>
 </kw>
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.783583" elapsed="0.012020"/>
+<status status="PASS" start="2024-03-21T23:36:20.574056" elapsed="0.010993"/>
 </kw>
-<status status="PASS" start="2024-03-18T23:44:40.782584" elapsed="0.013019"/>
+<status status="PASS" start="2024-03-21T23:36:20.573051" elapsed="0.012996"/>
 </branch>
 <branch type="ELSE">
 <kw name="Write Excel Cell" owner="ExcelLibrary">
@@ -763,18 +840,18 @@
 <arg>6</arg>
 <arg>FAIL</arg>
 <doc>Writes value to the cell.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:40.795603" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:20.586047" elapsed="0.000000"/>
 </kw>
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:40.795603" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:20.586047" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2024-03-18T23:44:40.795603" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:20.586047" elapsed="0.001000"/>
 </branch>
-<status status="PASS" start="2024-03-18T23:44:40.782584" elapsed="0.013019"/>
+<status status="PASS" start="2024-03-21T23:36:20.573051" elapsed="0.013996"/>
 </if>
-<status status="PASS" start="2024-03-18T23:44:40.761466" elapsed="0.034137"/>
+<status status="PASS" start="2024-03-21T23:36:20.551060" elapsed="0.035987"/>
 </branch>
 <branch type="ELSE">
 <kw name="Write Excel Cell" owner="ExcelLibrary">
@@ -782,101 +859,101 @@
 <arg>6</arg>
 <arg>PASS</arg>
 <doc>Writes value to the cell.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:40.797108" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:20.587047" elapsed="0.000000"/>
 </kw>
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:40.797108" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:20.587047" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2024-03-18T23:44:40.797108" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:20.587047" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2024-03-18T23:44:40.761466" elapsed="0.035642"/>
+<status status="PASS" start="2024-03-21T23:36:20.551060" elapsed="0.035987"/>
 </if>
 <var name="${index}">6</var>
-<status status="PASS" start="2024-03-18T23:44:40.528610" elapsed="0.268498"/>
+<status status="PASS" start="2024-03-21T23:36:20.351098" elapsed="0.235949"/>
 </iter>
 <var>${index}</var>
 <value>2</value>
 <value>7</value>
-<status status="PASS" start="2024-03-18T23:44:38.709731" elapsed="2.087377"/>
+<status status="PASS" start="2024-03-21T23:36:18.623993" elapsed="1.963054"/>
 </for>
-<status status="PASS" start="2024-03-18T23:44:38.709731" elapsed="2.088389"/>
+<status status="PASS" start="2024-03-21T23:36:18.622994" elapsed="1.965557"/>
 </kw>
 <kw name="Reload Page" owner="SeleniumLibrary">
 <doc>Simulates user reloading page.</doc>
-<status status="PASS" start="2024-03-18T23:44:40.798120" elapsed="0.525108"/>
+<status status="PASS" start="2024-03-21T23:36:20.589556" elapsed="0.375356"/>
 </kw>
 <kw name="Validate expDate" owner="Paygate">
 <for flavor="IN RANGE">
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2024-03-18T23:44:41.325228" level="INFO">${expDate} = 0113@$#$</msg>
+<msg time="2024-03-21T23:36:20.967908" level="INFO">${expDate} = 0113@$#$</msg>
 <var>${expDate}</var>
 <arg>${index}</arg>
 <arg>3</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2024-03-18T23:44:41.325228" elapsed="0.000000"/>
+<status status="PASS" start="2024-03-21T23:36:20.967908" elapsed="0.000000"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${localExpDate}</arg>
+<arg>${locationExpDate}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:44:41.325228" elapsed="0.234490"/>
+<status status="PASS" start="2024-03-21T23:36:20.967908" elapsed="0.236465"/>
 </kw>
 <kw name="Clear Element Text" owner="SeleniumLibrary">
-<arg>${localExpDate}</arg>
+<arg>${locationExpDate}</arg>
 <doc>Clears the value of the text-input-element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:41.560733" elapsed="0.049655"/>
+<status status="PASS" start="2024-03-21T23:36:21.204373" elapsed="0.037976"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:41.611388" level="INFO">Typing text '0113@$#$' into text field 'id:exp_date'.</msg>
-<arg>${localExpDate}</arg>
+<msg time="2024-03-21T23:36:21.242349" level="INFO">Typing text '0113@$#$' into text field 'id:exp_date'.</msg>
+<arg>${locationExpDate}</arg>
 <arg>${expDate}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:41.610388" elapsed="0.133667"/>
+<status status="PASS" start="2024-03-21T23:36:21.242349" elapsed="0.155038"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-03-18T23:44:43.745136" level="INFO">Slept 2 seconds.</msg>
+<msg time="2024-03-21T23:36:23.398506" level="INFO">Slept 2 seconds.</msg>
 <arg>2</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-03-18T23:44:41.745052" elapsed="2.000084"/>
+<status status="PASS" start="2024-03-21T23:36:21.398389" elapsed="2.000117"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:43.745659" level="INFO">Clicking element 'id:card_name'.</msg>
-<arg>${localCardName}</arg>
+<msg time="2024-03-21T23:36:23.398506" level="INFO">Clicking element 'id:card_name'.</msg>
+<arg>${locationCardName}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:43.745659" elapsed="0.042184"/>
+<status status="PASS" start="2024-03-21T23:36:23.398506" elapsed="0.047045"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2024-03-18T23:44:43.788853" level="INFO">${epextMsg} = None</msg>
+<msg time="2024-03-21T23:36:23.445551" level="INFO">${epextMsg} = None</msg>
 <var>${epextMsg}</var>
 <arg>${index}</arg>
 <arg>5</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2024-03-18T23:44:43.788853" elapsed="0.000000"/>
+<status status="PASS" start="2024-03-21T23:36:23.445551" elapsed="0.001000"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:43.993900" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2024-03-18T23:44:43.993900" level="FAIL">Element with locator 'xpath:(//span[@class='error'])[1]' not found.</msg>
+<msg time="2024-03-21T23:36:23.638557" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-03-21T23:36:23.638557" level="FAIL">Element with locator 'xpath:(//span[@class='error'])[1]' not found.</msg>
 <arg>${msgErrorDate}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="FAIL" start="2024-03-18T23:44:43.789852" elapsed="0.205048">Element with locator 'xpath:(//span[@class='error'])[1]' not found.</status>
+<status status="FAIL" start="2024-03-21T23:36:23.446551" elapsed="0.194004">Element with locator 'xpath:(//span[@class='error'])[1]' not found.</status>
 </kw>
-<msg time="2024-03-18T23:44:43.994900" level="INFO">${resual1} = False</msg>
+<msg time="2024-03-21T23:36:23.640555" level="INFO">${resual1} = False</msg>
 <var>${resual1}</var>
 <arg>Element Should Be Visible</arg>
 <arg>${msgErrorDate}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2024-03-18T23:44:43.788853" elapsed="0.206047"/>
+<status status="PASS" start="2024-03-21T23:36:23.446551" elapsed="0.195003"/>
 </kw>
 <if>
 <branch type="IF" condition="${resual1} == $True">
 <kw name="Log" owner="BuiltIn">
 <arg>test</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:43.996406" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:23.641554" elapsed="0.000000"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <var>${resual2}</var>
@@ -884,7 +961,7 @@
 <arg>${msgErrorDate}</arg>
 <arg>${epextMsg}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:43.996918" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:23.642553" elapsed="0.000000"/>
 </kw>
 <if>
 <branch type="IF" condition="${resual2} == True">
@@ -893,14 +970,14 @@
 <arg>6</arg>
 <arg>PASS</arg>
 <doc>Writes value to the cell.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:43.996918" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:23.642553" elapsed="0.000000"/>
 </kw>
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:43.996918" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:23.643552" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2024-03-18T23:44:43.996918" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:23.642553" elapsed="0.000999"/>
 </branch>
 <branch type="ELSE">
 <kw name="Write Excel Cell" owner="ExcelLibrary">
@@ -908,18 +985,18 @@
 <arg>6</arg>
 <arg>FAIL</arg>
 <doc>Writes value to the cell.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:43.997926" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:23.643552" elapsed="0.000000"/>
 </kw>
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:43.997926" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:23.643552" elapsed="0.001001"/>
 </kw>
-<status status="NOT RUN" start="2024-03-18T23:44:43.997926" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:23.643552" elapsed="0.001001"/>
 </branch>
-<status status="NOT RUN" start="2024-03-18T23:44:43.996918" elapsed="0.002010"/>
+<status status="NOT RUN" start="2024-03-21T23:36:23.642553" elapsed="0.002000"/>
 </if>
-<status status="NOT RUN" start="2024-03-18T23:44:43.994900" elapsed="0.004028"/>
+<status status="NOT RUN" start="2024-03-21T23:36:23.641554" elapsed="0.002999"/>
 </branch>
 <branch type="ELSE">
 <kw name="Write Excel Cell" owner="ExcelLibrary">
@@ -927,104 +1004,104 @@
 <arg>6</arg>
 <arg>PASS</arg>
 <doc>Writes value to the cell.</doc>
-<status status="PASS" start="2024-03-18T23:44:43.998928" elapsed="0.000000"/>
+<status status="PASS" start="2024-03-21T23:36:23.644553" elapsed="0.000000"/>
 </kw>
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="PASS" start="2024-03-18T23:44:43.998928" elapsed="0.014067"/>
+<status status="PASS" start="2024-03-21T23:36:23.645552" elapsed="0.013991"/>
 </kw>
-<status status="PASS" start="2024-03-18T23:44:43.998928" elapsed="0.015065"/>
+<status status="PASS" start="2024-03-21T23:36:23.644553" elapsed="0.014990"/>
 </branch>
-<status status="PASS" start="2024-03-18T23:44:43.994900" elapsed="0.019093"/>
+<status status="PASS" start="2024-03-21T23:36:23.641554" elapsed="0.017989"/>
 </if>
 <var name="${index}">7</var>
-<status status="PASS" start="2024-03-18T23:44:41.325228" elapsed="2.688765"/>
+<status status="PASS" start="2024-03-21T23:36:20.966910" elapsed="2.692633"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2024-03-18T23:44:44.015012" level="INFO">${expDate} = @$#$</msg>
+<msg time="2024-03-21T23:36:23.660546" level="INFO">${expDate} = @$#$</msg>
 <var>${expDate}</var>
 <arg>${index}</arg>
 <arg>3</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2024-03-18T23:44:44.013993" elapsed="0.001019"/>
+<status status="PASS" start="2024-03-21T23:36:23.660546" elapsed="0.000000"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${localExpDate}</arg>
+<arg>${locationExpDate}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:44:44.015012" elapsed="0.017545"/>
+<status status="PASS" start="2024-03-21T23:36:23.661543" elapsed="0.016993"/>
 </kw>
 <kw name="Clear Element Text" owner="SeleniumLibrary">
-<arg>${localExpDate}</arg>
+<arg>${locationExpDate}</arg>
 <doc>Clears the value of the text-input-element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:44.033573" elapsed="0.038996"/>
+<status status="PASS" start="2024-03-21T23:36:23.679535" elapsed="0.038708"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:44.073571" level="INFO">Typing text '@$#$' into text field 'id:exp_date'.</msg>
-<arg>${localExpDate}</arg>
+<msg time="2024-03-21T23:36:23.719244" level="INFO">Typing text '@$#$' into text field 'id:exp_date'.</msg>
+<arg>${locationExpDate}</arg>
 <arg>${expDate}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:44.073571" elapsed="0.084269"/>
+<status status="PASS" start="2024-03-21T23:36:23.719244" elapsed="0.086327"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-03-18T23:44:46.157880" level="INFO">Slept 2 seconds.</msg>
+<msg time="2024-03-21T23:36:25.807056" level="INFO">Slept 2 seconds.</msg>
 <arg>2</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-03-18T23:44:44.157840" elapsed="2.000040"/>
+<status status="PASS" start="2024-03-21T23:36:23.806570" elapsed="2.000486"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:46.157880" level="INFO">Clicking element 'id:card_name'.</msg>
-<arg>${localCardName}</arg>
+<msg time="2024-03-21T23:36:25.808281" level="INFO">Clicking element 'id:card_name'.</msg>
+<arg>${locationCardName}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:46.157880" elapsed="0.068071"/>
+<status status="PASS" start="2024-03-21T23:36:25.807056" elapsed="0.044187"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2024-03-18T23:44:46.227451" level="INFO">${epextMsg} = Không hợp lệ</msg>
+<msg time="2024-03-21T23:36:25.852242" level="INFO">${epextMsg} = Không hợp lệ</msg>
 <var>${epextMsg}</var>
 <arg>${index}</arg>
 <arg>5</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2024-03-18T23:44:46.226948" elapsed="0.000503"/>
+<status status="PASS" start="2024-03-21T23:36:25.852242" elapsed="0.000000"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:46.246734" level="INFO">Element 'xpath:(//span[@class='error'])[1]' is displayed.</msg>
+<msg time="2024-03-21T23:36:25.873232" level="INFO">Element 'xpath:(//span[@class='error'])[1]' is displayed.</msg>
 <arg>${msgErrorDate}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:44:46.228453" elapsed="0.018281"/>
+<status status="PASS" start="2024-03-21T23:36:25.853242" elapsed="0.019990"/>
 </kw>
-<msg time="2024-03-18T23:44:46.247754" level="INFO">${resual1} = True</msg>
+<msg time="2024-03-21T23:36:25.873232" level="INFO">${resual1} = True</msg>
 <var>${resual1}</var>
 <arg>Element Should Be Visible</arg>
 <arg>${msgErrorDate}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2024-03-18T23:44:46.227451" elapsed="0.020303"/>
+<status status="PASS" start="2024-03-21T23:36:25.852242" elapsed="0.022002"/>
 </kw>
 <if>
 <branch type="IF" condition="${resual1} == $True">
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-03-18T23:44:46.248758" level="INFO">test</msg>
+<msg time="2024-03-21T23:36:25.874244" level="INFO">test</msg>
 <arg>test</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-03-18T23:44:46.248758" elapsed="0.000000"/>
+<status status="PASS" start="2024-03-21T23:36:25.874244" elapsed="0.001000"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Element Text Should Be" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:46.249757" level="INFO">Verifying element 'xpath:(//span[@class='error'])[1]' contains exact text 'Không hợp lệ'.</msg>
+<msg time="2024-03-21T23:36:25.875244" level="INFO">Verifying element 'xpath:(//span[@class='error'])[1]' contains exact text 'Không hợp lệ'.</msg>
 <arg>${msgErrorDate}</arg>
 <arg>${epextMsg}</arg>
 <doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<status status="PASS" start="2024-03-18T23:44:46.249757" elapsed="0.018668"/>
+<status status="PASS" start="2024-03-21T23:36:25.875244" elapsed="0.061988"/>
 </kw>
-<msg time="2024-03-18T23:44:46.269428" level="INFO">${resual2} = True</msg>
+<msg time="2024-03-21T23:36:25.937232" level="INFO">${resual2} = True</msg>
 <var>${resual2}</var>
 <arg>Element Text Should Be</arg>
 <arg>${msgErrorDate}</arg>
 <arg>${epextMsg}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2024-03-18T23:44:46.249757" elapsed="0.019671"/>
+<status status="PASS" start="2024-03-21T23:36:25.875244" elapsed="0.062987"/>
 </kw>
 <if>
 <branch type="IF" condition="${resual2} == True">
@@ -1033,14 +1110,14 @@
 <arg>6</arg>
 <arg>PASS</arg>
 <doc>Writes value to the cell.</doc>
-<status status="PASS" start="2024-03-18T23:44:46.269428" elapsed="0.000999"/>
+<status status="PASS" start="2024-03-21T23:36:25.939230" elapsed="0.000000"/>
 </kw>
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="PASS" start="2024-03-18T23:44:46.270427" elapsed="0.010866"/>
+<status status="PASS" start="2024-03-21T23:36:25.940230" elapsed="0.015998"/>
 </kw>
-<status status="PASS" start="2024-03-18T23:44:46.269428" elapsed="0.012865"/>
+<status status="PASS" start="2024-03-21T23:36:25.938231" elapsed="0.017997"/>
 </branch>
 <branch type="ELSE">
 <kw name="Write Excel Cell" owner="ExcelLibrary">
@@ -1048,18 +1125,18 @@
 <arg>6</arg>
 <arg>FAIL</arg>
 <doc>Writes value to the cell.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:46.283294" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:25.957227" elapsed="0.000000"/>
 </kw>
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:46.283294" elapsed="0.000999"/>
+<status status="NOT RUN" start="2024-03-21T23:36:25.957227" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2024-03-18T23:44:46.282293" elapsed="0.002000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:25.956228" elapsed="0.000999"/>
 </branch>
-<status status="PASS" start="2024-03-18T23:44:46.269428" elapsed="0.014865"/>
+<status status="PASS" start="2024-03-21T23:36:25.938231" elapsed="0.018996"/>
 </if>
-<status status="PASS" start="2024-03-18T23:44:46.247754" elapsed="0.036539"/>
+<status status="PASS" start="2024-03-21T23:36:25.874244" elapsed="0.082983"/>
 </branch>
 <branch type="ELSE">
 <kw name="Write Excel Cell" owner="ExcelLibrary">
@@ -1067,104 +1144,104 @@
 <arg>6</arg>
 <arg>PASS</arg>
 <doc>Writes value to the cell.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:46.285291" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:25.958225" elapsed="0.000000"/>
 </kw>
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:46.285291" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:25.958225" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2024-03-18T23:44:46.284293" elapsed="0.000998"/>
+<status status="NOT RUN" start="2024-03-21T23:36:25.957227" elapsed="0.000998"/>
 </branch>
-<status status="PASS" start="2024-03-18T23:44:46.247754" elapsed="0.037537"/>
+<status status="PASS" start="2024-03-21T23:36:25.874244" elapsed="0.083981"/>
 </if>
 <var name="${index}">8</var>
-<status status="PASS" start="2024-03-18T23:44:44.013993" elapsed="2.271298"/>
+<status status="PASS" start="2024-03-21T23:36:23.660546" elapsed="2.297679"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2024-03-18T23:44:46.286795" level="INFO">${expDate} = None</msg>
+<msg time="2024-03-21T23:36:25.959225" level="INFO">${expDate} = None</msg>
 <var>${expDate}</var>
 <arg>${index}</arg>
 <arg>3</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2024-03-18T23:44:46.286795" elapsed="0.000000"/>
+<status status="PASS" start="2024-03-21T23:36:25.959225" elapsed="0.000000"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${localExpDate}</arg>
+<arg>${locationExpDate}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:44:46.288270" elapsed="0.094254"/>
+<status status="PASS" start="2024-03-21T23:36:25.959225" elapsed="0.020503"/>
 </kw>
 <kw name="Clear Element Text" owner="SeleniumLibrary">
-<arg>${localExpDate}</arg>
+<arg>${locationExpDate}</arg>
 <doc>Clears the value of the text-input-element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:46.383524" elapsed="0.055146"/>
+<status status="PASS" start="2024-03-21T23:36:25.979728" elapsed="0.035494"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:46.438670" level="INFO">Typing text 'None' into text field 'id:exp_date'.</msg>
-<arg>${localExpDate}</arg>
+<msg time="2024-03-21T23:36:26.015222" level="INFO">Typing text 'None' into text field 'id:exp_date'.</msg>
+<arg>${locationExpDate}</arg>
 <arg>${expDate}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:46.438670" elapsed="0.092129"/>
+<status status="PASS" start="2024-03-21T23:36:26.015222" elapsed="0.079907"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-03-18T23:44:48.531265" level="INFO">Slept 2 seconds.</msg>
+<msg time="2024-03-21T23:36:28.096294" level="INFO">Slept 2 seconds.</msg>
 <arg>2</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-03-18T23:44:46.530799" elapsed="2.000466"/>
+<status status="PASS" start="2024-03-21T23:36:26.095129" elapsed="2.001165"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:48.532272" level="INFO">Clicking element 'id:card_name'.</msg>
-<arg>${localCardName}</arg>
+<msg time="2024-03-21T23:36:28.096294" level="INFO">Clicking element 'id:card_name'.</msg>
+<arg>${locationCardName}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:48.531265" elapsed="0.042398"/>
+<status status="PASS" start="2024-03-21T23:36:28.096294" elapsed="0.046514"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2024-03-18T23:44:48.573663" level="INFO">${epextMsg} = Không hợp lệ</msg>
+<msg time="2024-03-21T23:36:28.142808" level="INFO">${epextMsg} = Không hợp lệ</msg>
 <var>${epextMsg}</var>
 <arg>${index}</arg>
 <arg>5</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2024-03-18T23:44:48.573663" elapsed="0.000000"/>
+<status status="PASS" start="2024-03-21T23:36:28.142808" elapsed="0.001016"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:48.593838" level="INFO">Element 'xpath:(//span[@class='error'])[1]' is displayed.</msg>
+<msg time="2024-03-21T23:36:28.161796" level="INFO">Element 'xpath:(//span[@class='error'])[1]' is displayed.</msg>
 <arg>${msgErrorDate}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:44:48.574663" elapsed="0.019175"/>
+<status status="PASS" start="2024-03-21T23:36:28.143824" elapsed="0.017972"/>
 </kw>
-<msg time="2024-03-18T23:44:48.593838" level="INFO">${resual1} = True</msg>
+<msg time="2024-03-21T23:36:28.162809" level="INFO">${resual1} = True</msg>
 <var>${resual1}</var>
 <arg>Element Should Be Visible</arg>
 <arg>${msgErrorDate}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2024-03-18T23:44:48.574663" elapsed="0.019175"/>
+<status status="PASS" start="2024-03-21T23:36:28.143824" elapsed="0.018985"/>
 </kw>
 <if>
 <branch type="IF" condition="${resual1} == $True">
 <kw name="Log" owner="BuiltIn">
-<msg time="2024-03-18T23:44:48.594837" level="INFO">test</msg>
+<msg time="2024-03-21T23:36:28.163808" level="INFO">test</msg>
 <arg>test</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-03-18T23:44:48.594837" elapsed="0.000000"/>
+<status status="PASS" start="2024-03-21T23:36:28.162809" elapsed="0.000999"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Element Text Should Be" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:48.595837" level="INFO">Verifying element 'xpath:(//span[@class='error'])[1]' contains exact text 'Không hợp lệ'.</msg>
+<msg time="2024-03-21T23:36:28.164795" level="INFO">Verifying element 'xpath:(//span[@class='error'])[1]' contains exact text 'Không hợp lệ'.</msg>
 <arg>${msgErrorDate}</arg>
 <arg>${epextMsg}</arg>
 <doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<status status="PASS" start="2024-03-18T23:44:48.595837" elapsed="0.016119"/>
+<status status="PASS" start="2024-03-21T23:36:28.163808" elapsed="0.017980"/>
 </kw>
-<msg time="2024-03-18T23:44:48.611956" level="INFO">${resual2} = True</msg>
+<msg time="2024-03-21T23:36:28.181788" level="INFO">${resual2} = True</msg>
 <var>${resual2}</var>
 <arg>Element Text Should Be</arg>
 <arg>${msgErrorDate}</arg>
 <arg>${epextMsg}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2024-03-18T23:44:48.594837" elapsed="0.017119"/>
+<status status="PASS" start="2024-03-21T23:36:28.163808" elapsed="0.017980"/>
 </kw>
 <if>
 <branch type="IF" condition="${resual2} == True">
@@ -1173,14 +1250,14 @@
 <arg>6</arg>
 <arg>PASS</arg>
 <doc>Writes value to the cell.</doc>
-<status status="PASS" start="2024-03-18T23:44:48.613471" elapsed="0.000000"/>
+<status status="PASS" start="2024-03-21T23:36:28.182801" elapsed="0.000000"/>
 </kw>
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="PASS" start="2024-03-18T23:44:48.613471" elapsed="0.011040"/>
+<status status="PASS" start="2024-03-21T23:36:28.183800" elapsed="0.011323"/>
 </kw>
-<status status="PASS" start="2024-03-18T23:44:48.613471" elapsed="0.012025"/>
+<status status="PASS" start="2024-03-21T23:36:28.182801" elapsed="0.012322"/>
 </branch>
 <branch type="ELSE">
 <kw name="Write Excel Cell" owner="ExcelLibrary">
@@ -1188,18 +1265,18 @@
 <arg>6</arg>
 <arg>FAIL</arg>
 <doc>Writes value to the cell.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:48.625496" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:28.196121" elapsed="0.000000"/>
 </kw>
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:48.625496" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:28.196121" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2024-03-18T23:44:48.625496" elapsed="0.001011"/>
+<status status="NOT RUN" start="2024-03-21T23:36:28.195123" elapsed="0.000998"/>
 </branch>
-<status status="PASS" start="2024-03-18T23:44:48.611956" elapsed="0.014551"/>
+<status status="PASS" start="2024-03-21T23:36:28.182801" elapsed="0.013320"/>
 </if>
-<status status="PASS" start="2024-03-18T23:44:48.593838" elapsed="0.032669"/>
+<status status="PASS" start="2024-03-21T23:36:28.162809" elapsed="0.033312"/>
 </branch>
 <branch type="ELSE">
 <kw name="Write Excel Cell" owner="ExcelLibrary">
@@ -1207,101 +1284,101 @@
 <arg>6</arg>
 <arg>PASS</arg>
 <doc>Writes value to the cell.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:48.626507" elapsed="0.000518"/>
+<status status="NOT RUN" start="2024-03-21T23:36:28.197121" elapsed="0.000000"/>
 </kw>
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:48.627025" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:28.197121" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2024-03-18T23:44:48.626507" elapsed="0.000518"/>
+<status status="NOT RUN" start="2024-03-21T23:36:28.196121" elapsed="0.001000"/>
 </branch>
-<status status="PASS" start="2024-03-18T23:44:48.593838" elapsed="0.033187"/>
+<status status="PASS" start="2024-03-21T23:36:28.162809" elapsed="0.034312"/>
 </if>
 <var name="${index}">9</var>
-<status status="PASS" start="2024-03-18T23:44:46.286795" elapsed="2.340230"/>
+<status status="PASS" start="2024-03-21T23:36:25.958225" elapsed="2.238896"/>
 </iter>
 <var>${index}</var>
 <value>7</value>
 <value>10</value>
-<status status="PASS" start="2024-03-18T23:44:41.325228" elapsed="7.301797"/>
+<status status="PASS" start="2024-03-21T23:36:20.966910" elapsed="7.230211"/>
 </for>
-<status status="PASS" start="2024-03-18T23:44:41.324232" elapsed="7.302793"/>
+<status status="PASS" start="2024-03-21T23:36:20.965910" elapsed="7.232211"/>
 </kw>
 <kw name="Reload Page" owner="SeleniumLibrary">
 <doc>Simulates user reloading page.</doc>
-<status status="PASS" start="2024-03-18T23:44:48.628027" elapsed="0.302497"/>
+<status status="PASS" start="2024-03-21T23:36:28.198121" elapsed="0.297203"/>
 </kw>
 <kw name="Validate cardName" owner="Paygate">
 <for flavor="IN RANGE">
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2024-03-18T23:44:48.935529" level="INFO">${userName} = None</msg>
+<msg time="2024-03-21T23:36:28.498317" level="INFO">${userName} = None</msg>
 <var>${userName}</var>
 <arg>${index}</arg>
 <arg>4</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2024-03-18T23:44:48.935529" elapsed="0.000000"/>
+<status status="PASS" start="2024-03-21T23:36:28.498317" elapsed="0.000000"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${localCardName}</arg>
+<arg>${locationCardName}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:44:48.935529" elapsed="0.229401"/>
+<status status="PASS" start="2024-03-21T23:36:28.498317" elapsed="0.233175"/>
 </kw>
 <kw name="Clear Element Text" owner="SeleniumLibrary">
-<arg>${localCardName}</arg>
+<arg>${locationCardName}</arg>
 <doc>Clears the value of the text-input-element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:49.164930" elapsed="0.050844"/>
+<status status="PASS" start="2024-03-21T23:36:28.731492" elapsed="0.030999"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:49.219326" level="INFO">Typing text 'None' into text field 'id:card_name'.</msg>
-<arg>${localCardName}</arg>
+<msg time="2024-03-21T23:36:28.763490" level="INFO">Typing text 'None' into text field 'id:card_name'.</msg>
+<arg>${locationCardName}</arg>
 <arg>${userName}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:49.217290" elapsed="0.114169"/>
+<status status="PASS" start="2024-03-21T23:36:28.762491" elapsed="0.086455"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-03-18T23:44:51.332594" level="INFO">Slept 2 seconds.</msg>
+<msg time="2024-03-21T23:36:30.850327" level="INFO">Slept 2 seconds.</msg>
 <arg>2</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-03-18T23:44:49.331459" elapsed="2.001135"/>
+<status status="PASS" start="2024-03-21T23:36:28.848946" elapsed="2.001381"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:51.333609" level="INFO">Clicking element 'id:exp_date'.</msg>
-<arg>${localExpDate}</arg>
+<msg time="2024-03-21T23:36:30.851349" level="INFO">Clicking element 'id:exp_date'.</msg>
+<arg>${locationExpDate}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:51.332594" elapsed="0.048134"/>
+<status status="PASS" start="2024-03-21T23:36:30.851349" elapsed="0.066504"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2024-03-18T23:44:51.381724" level="INFO">${epextMsg} = Không hợp lệ</msg>
+<msg time="2024-03-21T23:36:30.918869" level="INFO">${epextMsg} = Không hợp lệ</msg>
 <var>${epextMsg}</var>
 <arg>${index}</arg>
 <arg>5</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2024-03-18T23:44:51.380728" elapsed="0.001995"/>
+<status status="PASS" start="2024-03-21T23:36:30.918869" elapsed="0.000998"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:51.755767" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2024-03-18T23:44:51.756753" level="FAIL">Element with locator 'xpath://div[@class='form-field form-field-big']//span[@class='error']' not found.</msg>
+<msg time="2024-03-21T23:36:31.193869" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-03-21T23:36:31.193869" level="FAIL">Element with locator 'xpath://div[@class='form-field form-field-big']//span[@class='error']' not found.</msg>
 <arg>${msgErrorCardNumne}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="FAIL" start="2024-03-18T23:44:51.383723" elapsed="0.374542">Element with locator 'xpath://div[@class='form-field form-field-big']//span[@class='error']' not found.</status>
+<status status="FAIL" start="2024-03-21T23:36:30.919867" elapsed="0.275004">Element with locator 'xpath://div[@class='form-field form-field-big']//span[@class='error']' not found.</status>
 </kw>
-<msg time="2024-03-18T23:44:51.758265" level="INFO">${resual1} = False</msg>
+<msg time="2024-03-21T23:36:31.194871" level="INFO">${resual1} = False</msg>
 <var>${resual1}</var>
 <arg>Element Should Be Visible</arg>
 <arg>${msgErrorCardNumne}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2024-03-18T23:44:51.382723" elapsed="0.375542"/>
+<status status="PASS" start="2024-03-21T23:36:30.919867" elapsed="0.275004"/>
 </kw>
 <if>
 <branch type="IF" condition="${resual1} == $True">
 <kw name="Log" owner="BuiltIn">
 <arg>test</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:51.758265" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:31.195876" elapsed="0.000000"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <var>${resual2}</var>
@@ -1309,7 +1386,7 @@
 <arg>${msgErrorCardNumne}</arg>
 <arg>${epextMsg}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:51.759770" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:31.195876" elapsed="0.000000"/>
 </kw>
 <if>
 <branch type="IF" condition="${resual2} == True">
@@ -1318,14 +1395,14 @@
 <arg>6</arg>
 <arg>PASS</arg>
 <doc>Writes value to the cell.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:51.759770" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:31.196869" elapsed="0.000000"/>
 </kw>
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:51.759770" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:31.196869" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2024-03-18T23:44:51.759770" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:31.195876" elapsed="0.000993"/>
 </branch>
 <branch type="ELSE">
 <kw name="Write Excel Cell" owner="ExcelLibrary">
@@ -1333,18 +1410,18 @@
 <arg>6</arg>
 <arg>FAIL</arg>
 <doc>Writes value to the cell.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:51.760811" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:31.196869" elapsed="0.000000"/>
 </kw>
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:51.760811" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:31.197881" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2024-03-18T23:44:51.760811" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:31.196869" elapsed="0.001012"/>
 </branch>
-<status status="NOT RUN" start="2024-03-18T23:44:51.759770" elapsed="0.001041"/>
+<status status="NOT RUN" start="2024-03-21T23:36:31.195876" elapsed="0.002005"/>
 </if>
-<status status="NOT RUN" start="2024-03-18T23:44:51.758265" elapsed="0.002546"/>
+<status status="NOT RUN" start="2024-03-21T23:36:31.194871" elapsed="0.003010"/>
 </branch>
 <branch type="ELSE">
 <kw name="Write Excel Cell" owner="ExcelLibrary">
@@ -1352,88 +1429,88 @@
 <arg>6</arg>
 <arg>PASS</arg>
 <doc>Writes value to the cell.</doc>
-<status status="PASS" start="2024-03-18T23:44:51.761806" elapsed="0.000000"/>
+<status status="PASS" start="2024-03-21T23:36:31.197881" elapsed="0.000988"/>
 </kw>
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="PASS" start="2024-03-18T23:44:51.761806" elapsed="0.017351"/>
+<status status="PASS" start="2024-03-21T23:36:31.198869" elapsed="0.017003"/>
 </kw>
-<status status="PASS" start="2024-03-18T23:44:51.760811" elapsed="0.018346"/>
+<status status="PASS" start="2024-03-21T23:36:31.197881" elapsed="0.017991"/>
 </branch>
-<status status="PASS" start="2024-03-18T23:44:51.758265" elapsed="0.020892"/>
+<status status="PASS" start="2024-03-21T23:36:31.194871" elapsed="0.021001"/>
 </if>
 <var name="${index}">10</var>
-<status status="PASS" start="2024-03-18T23:44:48.934528" elapsed="2.845629"/>
+<status status="PASS" start="2024-03-21T23:36:28.497318" elapsed="2.718554"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2024-03-18T23:44:51.781156" level="INFO">${userName} = @$#$</msg>
+<msg time="2024-03-21T23:36:31.216871" level="INFO">${userName} = @$#$</msg>
 <var>${userName}</var>
 <arg>${index}</arg>
 <arg>4</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2024-03-18T23:44:51.781156" elapsed="0.001999"/>
+<status status="PASS" start="2024-03-21T23:36:31.216871" elapsed="0.001000"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${localCardName}</arg>
+<arg>${locationCardName}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:44:51.783155" elapsed="0.071385"/>
+<status status="PASS" start="2024-03-21T23:36:31.217871" elapsed="0.021982"/>
 </kw>
 <kw name="Clear Element Text" owner="SeleniumLibrary">
-<arg>${localCardName}</arg>
+<arg>${locationCardName}</arg>
 <doc>Clears the value of the text-input-element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:51.855539" elapsed="0.037667"/>
+<status status="PASS" start="2024-03-21T23:36:31.240847" elapsed="0.126951"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:51.894206" level="INFO">Typing text '@$#$' into text field 'id:card_name'.</msg>
-<arg>${localCardName}</arg>
+<msg time="2024-03-21T23:36:31.368797" level="INFO">Typing text '@$#$' into text field 'id:card_name'.</msg>
+<arg>${locationCardName}</arg>
 <arg>${userName}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:51.894206" elapsed="0.084584"/>
+<status status="PASS" start="2024-03-21T23:36:31.368797" elapsed="0.108501"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-03-18T23:44:53.979187" level="INFO">Slept 2 seconds.</msg>
+<msg time="2024-03-21T23:36:33.478773" level="INFO">Slept 2 seconds.</msg>
 <arg>2</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-03-18T23:44:51.978790" elapsed="2.000397"/>
+<status status="PASS" start="2024-03-21T23:36:31.477298" elapsed="2.001475"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:53.979187" level="INFO">Clicking element 'id:exp_date'.</msg>
-<arg>${localExpDate}</arg>
+<msg time="2024-03-21T23:36:33.478773" level="INFO">Clicking element 'id:exp_date'.</msg>
+<arg>${locationExpDate}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:53.979187" elapsed="0.056036"/>
+<status status="PASS" start="2024-03-21T23:36:33.478773" elapsed="0.048501"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2024-03-18T23:44:54.036729" level="INFO">${epextMsg} = Không hợp lệ</msg>
+<msg time="2024-03-21T23:36:33.527274" level="INFO">${epextMsg} = Không hợp lệ</msg>
 <var>${epextMsg}</var>
 <arg>${index}</arg>
 <arg>5</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2024-03-18T23:44:54.035223" elapsed="0.001506"/>
+<status status="PASS" start="2024-03-21T23:36:33.527274" elapsed="0.001003"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:54.225511" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2024-03-18T23:44:54.225511" level="FAIL">Element with locator 'xpath://div[@class='form-field form-field-big']//span[@class='error']' not found.</msg>
+<msg time="2024-03-21T23:36:33.721356" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-03-21T23:36:33.722355" level="FAIL">Element with locator 'xpath://div[@class='form-field form-field-big']//span[@class='error']' not found.</msg>
 <arg>${msgErrorCardNumne}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="FAIL" start="2024-03-18T23:44:54.036729" elapsed="0.189781">Element with locator 'xpath://div[@class='form-field form-field-big']//span[@class='error']' not found.</status>
+<status status="FAIL" start="2024-03-21T23:36:33.528277" elapsed="0.196079">Element with locator 'xpath://div[@class='form-field form-field-big']//span[@class='error']' not found.</status>
 </kw>
-<msg time="2024-03-18T23:44:54.226510" level="INFO">${resual1} = False</msg>
+<msg time="2024-03-21T23:36:33.724356" level="INFO">${resual1} = False</msg>
 <var>${resual1}</var>
 <arg>Element Should Be Visible</arg>
 <arg>${msgErrorCardNumne}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2024-03-18T23:44:54.036729" elapsed="0.189781"/>
+<status status="PASS" start="2024-03-21T23:36:33.528277" elapsed="0.196079"/>
 </kw>
 <if>
 <branch type="IF" condition="${resual1} == $True">
 <kw name="Log" owner="BuiltIn">
 <arg>test</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:54.227867" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:33.725353" elapsed="0.000000"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <var>${resual2}</var>
@@ -1441,7 +1518,7 @@
 <arg>${msgErrorCardNumne}</arg>
 <arg>${epextMsg}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:54.227867" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:33.725353" elapsed="0.000000"/>
 </kw>
 <if>
 <branch type="IF" condition="${resual2} == True">
@@ -1450,14 +1527,14 @@
 <arg>6</arg>
 <arg>PASS</arg>
 <doc>Writes value to the cell.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:54.227867" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:33.726353" elapsed="0.000000"/>
 </kw>
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:54.229375" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:33.726353" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2024-03-18T23:44:54.227867" elapsed="0.001508"/>
+<status status="NOT RUN" start="2024-03-21T23:36:33.726353" elapsed="0.000000"/>
 </branch>
 <branch type="ELSE">
 <kw name="Write Excel Cell" owner="ExcelLibrary">
@@ -1465,18 +1542,18 @@
 <arg>6</arg>
 <arg>FAIL</arg>
 <doc>Writes value to the cell.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:54.229375" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:33.726353" elapsed="0.000998"/>
 </kw>
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="NOT RUN" start="2024-03-18T23:44:54.229375" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-03-21T23:36:33.727351" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2024-03-18T23:44:54.229375" elapsed="0.001022"/>
+<status status="NOT RUN" start="2024-03-21T23:36:33.726353" elapsed="0.000998"/>
 </branch>
-<status status="NOT RUN" start="2024-03-18T23:44:54.227867" elapsed="0.002530"/>
+<status status="NOT RUN" start="2024-03-21T23:36:33.726353" elapsed="0.000998"/>
 </if>
-<status status="NOT RUN" start="2024-03-18T23:44:54.227867" elapsed="0.002530"/>
+<status status="NOT RUN" start="2024-03-21T23:36:33.724356" elapsed="0.002995"/>
 </branch>
 <branch type="ELSE">
 <kw name="Write Excel Cell" owner="ExcelLibrary">
@@ -1484,635 +1561,715 @@
 <arg>6</arg>
 <arg>PASS</arg>
 <doc>Writes value to the cell.</doc>
-<status status="PASS" start="2024-03-18T23:44:54.230397" elapsed="0.000000"/>
+<status status="PASS" start="2024-03-21T23:36:33.727351" elapsed="0.001002"/>
 </kw>
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${EXCEL}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="PASS" start="2024-03-18T23:44:54.230397" elapsed="0.010904"/>
+<status status="PASS" start="2024-03-21T23:36:33.728353" elapsed="0.013993"/>
 </kw>
-<status status="PASS" start="2024-03-18T23:44:54.230397" elapsed="0.011902"/>
+<status status="PASS" start="2024-03-21T23:36:33.727351" elapsed="0.015994"/>
 </branch>
-<status status="PASS" start="2024-03-18T23:44:54.227867" elapsed="0.014432"/>
+<status status="PASS" start="2024-03-21T23:36:33.724356" elapsed="0.018989"/>
 </if>
 <var name="${index}">11</var>
-<status status="PASS" start="2024-03-18T23:44:51.780157" elapsed="2.462142"/>
+<status status="PASS" start="2024-03-21T23:36:31.216871" elapsed="2.526474"/>
 </iter>
 <var>${index}</var>
 <value>10</value>
 <value>12</value>
-<status status="PASS" start="2024-03-18T23:44:48.933521" elapsed="5.308778"/>
+<status status="PASS" start="2024-03-21T23:36:28.497318" elapsed="5.246027"/>
 </for>
-<status status="PASS" start="2024-03-18T23:44:48.932520" elapsed="5.309779"/>
+<status status="PASS" start="2024-03-21T23:36:28.496346" elapsed="5.247504"/>
 </kw>
 <kw name="Close All Excel Documents" owner="ExcelLibrary">
 <doc>Closes all opened documents.</doc>
-<status status="PASS" start="2024-03-18T23:44:54.243297" elapsed="0.000000"/>
+<status status="PASS" start="2024-03-21T23:36:33.743850" elapsed="0.001002"/>
 </kw>
 <tag>Validate</tag>
-<status status="PASS" start="2024-03-18T23:44:38.645206" elapsed="15.599092"/>
+<status status="PASS" start="2024-03-21T23:36:15.165478" elapsed="18.579374"/>
 </test>
-<test id="s1-t3" name="Giao dich token merchant" line="29">
+<test id="s1-t3" name="Giao dich token merchant" line="33">
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:54.246803" level="INFO">Opening url 'https://dev.onepay.vn/client/qt/'</msg>
+<msg time="2024-03-21T23:36:33.746853" level="INFO">Opening url 'https://dev.onepay.vn/client/qt/'</msg>
 <arg>${PAYGATE_URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2024-03-18T23:44:54.245296" elapsed="0.198493"/>
+<status status="PASS" start="2024-03-21T23:36:33.746853" elapsed="0.176031"/>
 </kw>
 <kw name="Create payment token merchant" owner="PaymentToken">
 <kw name="Select payment token" owner="Paygate">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:54.445788" level="INFO">Typing text '1000000' into text field 'name:vpc_Amount'.</msg>
-<arg>${localAmount}</arg>
+<msg time="2024-03-21T23:36:33.928422" level="INFO">Typing text '1000000' into text field 'name:vpc_Amount'.</msg>
+<arg>${locationAmount}</arg>
 <arg>1000000</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:54.444790" elapsed="0.127241"/>
+<status status="PASS" start="2024-03-21T23:36:33.928422" elapsed="0.125020"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:54.573032" level="INFO">Clicking element 'name:vpc_CreateToken'.</msg>
+<msg time="2024-03-21T23:36:34.054441" level="INFO">Clicking element 'name:vpc_CreateToken'.</msg>
 <arg>${createToken}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:54.572031" elapsed="0.064629"/>
+<status status="PASS" start="2024-03-21T23:36:34.054441" elapsed="0.068479"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${valueCreateTokenTrue}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:44:54.637708" elapsed="0.024275"/>
+<status status="PASS" start="2024-03-21T23:36:34.124917" elapsed="0.024014"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:54.662487" level="INFO">Clicking element 'xpath://select[@name='vpc_CreateToken']/option[@value='true']'.</msg>
+<msg time="2024-03-21T23:36:34.148931" level="INFO">Clicking element 'xpath://select[@name='vpc_CreateToken']/option[@value='true']'.</msg>
 <arg>${valueCreateTokenTrue}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:54.662487" elapsed="0.033116"/>
+<status status="PASS" start="2024-03-21T23:36:34.148931" elapsed="0.038985"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:54.696601" level="INFO">Clicking button 'xpath://input[@value='Pay Now!']'.</msg>
+<msg time="2024-03-21T23:36:34.188915" level="INFO">Clicking button 'xpath://input[@value='Pay Now!']'.</msg>
 <arg>${btnPayNow}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:54.695603" elapsed="0.551667"/>
+<status status="PASS" start="2024-03-21T23:36:34.187916" elapsed="0.392909"/>
 </kw>
-<status status="PASS" start="2024-03-18T23:44:54.444790" elapsed="0.802480"/>
+<status status="PASS" start="2024-03-21T23:36:33.927422" elapsed="0.653403"/>
 </kw>
 <kw name="Select domestic" owner="Paygate">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${radioDomestic}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:44:55.248289" elapsed="0.254880"/>
+<status status="PASS" start="2024-03-21T23:36:34.581823" elapsed="0.490882"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:55.504181" level="INFO">Clicking element 'id:domescard-radio'.</msg>
+<msg time="2024-03-21T23:36:35.073707" level="INFO">Clicking element 'id:domescard-radio'.</msg>
 <arg>${radioDomestic}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:55.503169" elapsed="0.203905"/>
+<status status="PASS" start="2024-03-21T23:36:35.073707" elapsed="0.243015"/>
 </kw>
-<status status="PASS" start="2024-03-18T23:44:55.248289" elapsed="0.458785"/>
+<status status="PASS" start="2024-03-21T23:36:34.581823" elapsed="0.734899"/>
 </kw>
 <kw name="Select bank" owner="Paygate">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${listBank}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:44:55.707074" elapsed="0.069533"/>
+<status status="PASS" start="2024-03-21T23:36:35.317721" elapsed="0.085546"/>
 </kw>
 <kw name="Get WebElements" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:55.791447" level="INFO">@{banks} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="07647dcf1281c6d23c0c06d98bcd2612", element="f.9959C4BFB571172578D43D784961B052.d.A7AC816E04ADD382D3A51E6BD87D5B6D.e.737")&gt; | &lt;selenium.webd...</msg>
+<msg time="2024-03-21T23:36:35.418260" level="INFO">@{banks} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="98528cd2a5cb701a168340d3aabc242a", element="f.D1198A5797D6D1391D39A9912BE99E64.d.88B014FD030D337D569DA3182AE92C22.e.1046")&gt; | &lt;selenium.web...</msg>
 <var>@{banks}</var>
 <arg>${listBank}</arg>
 <doc>Returns a list of WebElement objects matching the ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:55.776607" elapsed="0.014840"/>
+<status status="PASS" start="2024-03-21T23:36:35.404264" elapsed="0.013996"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:55.792446" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="07647dcf1281c6d23c0c06d98bcd2612", element="f.9959C4BFB571172578D43D784961B052.d.A7AC816E04ADD382D3A51E6BD87D5B6D.e.738")&gt;'.</msg>
+<msg time="2024-03-21T23:36:35.419257" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="98528cd2a5cb701a168340d3aabc242a", element="f.D1198A5797D6D1391D39A9912BE99E64.d.88B014FD030D337D569DA3182AE92C22.e.1047")&gt;'.</msg>
 <arg>${banks}[${bankId}]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:55.791447" elapsed="0.145236"/>
+<status status="PASS" start="2024-03-21T23:36:35.418260" elapsed="0.060965"/>
 </kw>
 <arg>${index}</arg>
-<status status="PASS" start="2024-03-18T23:44:55.707074" elapsed="0.230116"/>
+<status status="PASS" start="2024-03-21T23:36:35.317721" elapsed="0.161504"/>
 </kw>
 <kw name="Input carNumber" owner="Paygate">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:55.938524" level="INFO">Typing text '9704360000000000002' into text field 'id:card_number'.</msg>
-<arg>${localCardNumber}</arg>
+<msg time="2024-03-21T23:36:35.480224" level="INFO">Typing text '9704360000000000002' into text field 'id:card_number'.</msg>
+<arg>${locationCardNumber}</arg>
 <arg>${txtCardNumber}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:55.938524" elapsed="0.158184"/>
+<status status="PASS" start="2024-03-21T23:36:35.480224" elapsed="0.172241"/>
 </kw>
 <arg>9704360000000000002</arg>
-<status status="PASS" start="2024-03-18T23:44:55.937190" elapsed="0.159518"/>
+<status status="PASS" start="2024-03-21T23:36:35.479225" elapsed="0.174243"/>
 </kw>
 <kw name="Input expDate" owner="Paygate">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:56.098728" level="INFO">Typing text '1123' into text field 'id:exp_date'.</msg>
-<arg>${localExpDate}</arg>
+<msg time="2024-03-21T23:36:35.655454" level="INFO">Typing text '1123' into text field 'id:exp_date'.</msg>
+<arg>${locationExpDate}</arg>
 <arg>${txtExpDate}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:56.098728" elapsed="0.074352"/>
+<status status="PASS" start="2024-03-21T23:36:35.654454" elapsed="0.074168"/>
 </kw>
 <arg>1123</arg>
-<status status="PASS" start="2024-03-18T23:44:56.097728" elapsed="0.076351"/>
+<status status="PASS" start="2024-03-21T23:36:35.653468" elapsed="0.075154"/>
 </kw>
 <kw name="Input cardName" owner="Paygate">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:56.175079" level="INFO">Typing text 'Nguyen van a' into text field 'id:card_name'.</msg>
-<arg>${localCardName}</arg>
+<msg time="2024-03-21T23:36:35.729620" level="INFO">Typing text 'Nguyen van a' into text field 'id:card_name'.</msg>
+<arg>${locationCardName}</arg>
 <arg>${txtCardName}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:56.175079" elapsed="0.125785"/>
+<status status="PASS" start="2024-03-21T23:36:35.729620" elapsed="0.082040"/>
 </kw>
 <arg>Nguyen van a</arg>
-<status status="PASS" start="2024-03-18T23:44:56.174079" elapsed="0.126785"/>
+<status status="PASS" start="2024-03-21T23:36:35.728622" elapsed="0.084038"/>
 </kw>
 <kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>${localBtnThanhToan}</arg>
+<arg>${locationBtnThanhToan}</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2024-03-18T23:44:56.301863" elapsed="0.067980"/>
+<status status="PASS" start="2024-03-21T23:36:35.812660" elapsed="0.025985"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:56.370841" level="INFO">Clicking button 'xpath://div[@class='action']/button'.</msg>
-<arg>${localBtnThanhToan}</arg>
+<msg time="2024-03-21T23:36:35.839644" level="INFO">Clicking button 'xpath://div[@class='action']/button'.</msg>
+<arg>${locationBtnThanhToan}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:56.369843" elapsed="0.101558"/>
+<status status="PASS" start="2024-03-21T23:36:35.839644" elapsed="0.084136"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${localOtp}</arg>
+<arg>${locationOtp}</arg>
 <arg>15s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:44:56.471401" elapsed="1.288387"/>
+<status status="PASS" start="2024-03-21T23:36:35.923780" elapsed="1.271855"/>
 </kw>
 <kw name="Input OTP" owner="Paygate">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:57.761815" level="INFO">Typing text '123456' into text field 'name:otp'.</msg>
-<arg>${localOtp}</arg>
+<msg time="2024-03-21T23:36:37.196635" level="INFO">Typing text '123456' into text field 'name:otp'.</msg>
+<arg>${locationOtp}</arg>
 <arg>${otp}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:57.761815" elapsed="0.097079"/>
+<status status="PASS" start="2024-03-21T23:36:37.196635" elapsed="0.084941"/>
 </kw>
-<arg>123456</arg>
-<status status="PASS" start="2024-03-18T23:44:57.760809" elapsed="0.098085"/>
+<arg>${otp}</arg>
+<status status="PASS" start="2024-03-21T23:36:37.195635" elapsed="0.085941"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:44:57.859883" level="INFO">Clicking button 'xpath://div[@class='otp']/button'.</msg>
-<arg>${localBtnSubmitOtp}</arg>
+<msg time="2024-03-21T23:36:37.282590" level="INFO">Clicking button 'xpath://div[@class='otp']/button'.</msg>
+<arg>${locationBtnSubmitOtp}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:44:57.858894" elapsed="0.068890"/>
+<status status="PASS" start="2024-03-21T23:36:37.282590" elapsed="0.066996"/>
 </kw>
 <arg>1</arg>
-<status status="PASS" start="2024-03-18T23:44:54.443789" elapsed="3.483995"/>
+<status status="PASS" start="2024-03-21T23:36:33.926423" elapsed="3.423163"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${localTitlePageKetQua}</arg>
+<arg>${locationTitlePageKetQua}</arg>
 <arg>20s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:44:57.928787" elapsed="2.482959"/>
+<status status="PASS" start="2024-03-21T23:36:37.350589" elapsed="1.297174"/>
 </kw>
 <kw name="Get Location" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:00.418870" level="INFO">${current_url} = https://dev.onepay.vn/client/qt/dr/?mode=TEST_PAYGATE&amp;vpc_Amount=1000000&amp;vpc_Card=970436&amp;vpc_CardNum=970436xxxxxxxxx0002&amp;vpc_CardUid=INS-ml2tstnDHAvgVQAAAAAAAQ&amp;vpc_Command=pay&amp;vpc_MerchTxnRef=TEST_171...</msg>
+<msg time="2024-03-21T23:36:38.653755" level="INFO">${current_url} = https://dev.onepay.vn/client/qt/dr/?mode=TEST_PAYGATE&amp;vpc_Amount=1000000&amp;vpc_Card=970436&amp;vpc_CardNum=970436xxxxxxxxx0002&amp;vpc_CardUid=INS-ml2tstnDHAvgVQAAAAAAAQ&amp;vpc_Command=pay&amp;vpc_MerchTxnRef=TEST_171...</msg>
 <var>${current_url}</var>
 <doc>Returns the current browser window URL.</doc>
-<status status="PASS" start="2024-03-18T23:45:00.412760" elapsed="0.006110"/>
+<status status="PASS" start="2024-03-21T23:36:38.647763" elapsed="0.005992"/>
 </kw>
 <kw name="Extract Token Value" owner="subString">
-<msg time="2024-03-18T23:45:00.419864" level="INFO">${token_num} = 9704365467815848</msg>
+<msg time="2024-03-21T23:36:38.693754" level="INFO">${token_num} = Không tìm thấy chuỗi 'vpc_TokenNum=' trong URL.</msg>
 <var>${token_num}</var>
 <arg>${current_url}</arg>
 <arg>vpc_TokenNum=</arg>
 <arg>&amp;</arg>
-<status status="PASS" start="2024-03-18T23:45:00.419864" elapsed="0.000000"/>
+<status status="PASS" start="2024-03-21T23:36:38.692755" elapsed="0.000999"/>
 </kw>
 <kw name="Extract Token Value" owner="subString">
-<msg time="2024-03-18T23:45:00.420853" level="INFO">${token_exp} = 0325</msg>
+<msg time="2024-03-21T23:36:38.695259" level="INFO">${token_exp} = Không tìm thấy chuỗi 'vpc_TokenExp=' trong URL.</msg>
 <var>${token_exp}</var>
 <arg>${current_url}</arg>
 <arg>vpc_TokenExp=</arg>
 <arg>&amp;</arg>
-<status status="PASS" start="2024-03-18T23:45:00.420853" elapsed="0.000000"/>
+<status status="PASS" start="2024-03-21T23:36:38.693754" elapsed="0.001505"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>token number ${token_num}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-03-18T23:45:00.421852" elapsed="0.000000"/>
+<status status="PASS" start="2024-03-21T23:36:38.695259" elapsed="0.001004"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>token exp ${token_exp}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-03-18T23:45:00.422852" elapsed="0.000000"/>
+<status status="PASS" start="2024-03-21T23:36:38.697262" elapsed="0.000000"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:00.424852" level="INFO">Opening url 'https://dev.onepay.vn/client/qt/'</msg>
+<msg time="2024-03-21T23:36:38.698263" level="INFO">Opening url 'https://dev.onepay.vn/client/qt/'</msg>
 <arg>${PAYGATE_URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2024-03-18T23:45:00.423852" elapsed="0.169060"/>
+<status status="PASS" start="2024-03-21T23:36:38.698263" elapsed="0.189810"/>
 </kw>
 <kw name="Payment token merchant" owner="PaymentToken">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${localTokenNumber}</arg>
+<arg>${locationTokenNumber}</arg>
 <arg>15s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:45:00.595921" elapsed="0.043531"/>
+<status status="PASS" start="2024-03-21T23:36:38.892072" elapsed="0.037488"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:00.640452" level="INFO">Typing text '1000000' into text field 'name:vpc_Amount'.</msg>
-<arg>${localAmount}</arg>
+<msg time="2024-03-21T23:36:38.929560" level="INFO">Typing text '1000000' into text field 'name:vpc_Amount'.</msg>
+<arg>${locationAmount}</arg>
 <arg>1000000</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:00.639452" elapsed="0.086399"/>
+<status status="PASS" start="2024-03-21T23:36:38.929560" elapsed="0.113961"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:00.726849" level="INFO">Typing text '9704365467815848' into text field 'name:vpc_TokenNum'.</msg>
-<arg>${localTokenNumber}</arg>
+<msg time="2024-03-21T23:36:39.044519" level="INFO">Typing text 'Không tìm thấy chuỗi 'vpc_TokenNum=' trong URL.' into text field 'name:vpc_TokenNum'.</msg>
+<arg>${locationTokenNumber}</arg>
 <arg>${vpc_TokenNumber}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:00.725851" elapsed="0.111293"/>
+<status status="PASS" start="2024-03-21T23:36:39.043521" elapsed="0.133476"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:00.838316" level="INFO">Typing text '0325' into text field 'name:vpc_TokenExp'.</msg>
-<arg>${localTokenExp}</arg>
+<msg time="2024-03-21T23:36:39.177999" level="INFO">Typing text 'Không tìm thấy chuỗi 'vpc_TokenExp=' trong URL.' into text field 'name:vpc_TokenExp'.</msg>
+<arg>${locationTokenExp}</arg>
 <arg>${vpc_TokenExp}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:00.838316" elapsed="0.077435"/>
+<status status="PASS" start="2024-03-21T23:36:39.176997" elapsed="0.110457"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:00.916752" level="INFO">Clicking button 'xpath://input[@value='Pay Now!']'.</msg>
+<msg time="2024-03-21T23:36:39.289453" level="INFO">Clicking button 'xpath://input[@value='Pay Now!']'.</msg>
 <arg>${btnPayNow}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:00.915751" elapsed="6.064413"/>
+<status status="PASS" start="2024-03-21T23:36:39.288453" elapsed="0.355626"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${localOtp}</arg>
+<msg time="2024-03-21T23:37:09.914746" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-03-21T23:37:09.915747" level="FAIL">Element 'name:otp' not visible after 30 seconds.</msg>
+<arg>${locationOtp}</arg>
 <arg>30s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:45:06.980164" elapsed="0.233795"/>
+<status status="FAIL" start="2024-03-21T23:36:39.645080" elapsed="30.272666">Element 'name:otp' not visible after 30 seconds.</status>
 </kw>
 <kw name="Input OTP" owner="Paygate">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:07.214972" level="INFO">Typing text '123456' into text field 'name:otp'.</msg>
-<arg>${localOtp}</arg>
-<arg>${otp}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:07.214972" elapsed="0.141654"/>
-</kw>
 <arg>123456</arg>
-<status status="PASS" start="2024-03-18T23:45:07.213959" elapsed="0.143703"/>
+<status status="NOT RUN" start="2024-03-21T23:37:09.917746" elapsed="0.000000"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:07.357662" level="INFO">Clicking button 'xpath://div[@class='otp']/button'.</msg>
-<arg>${localBtnSubmitOtp}</arg>
+<arg>${locationBtnSubmitOtp}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:07.357662" elapsed="0.067680"/>
+<status status="NOT RUN" start="2024-03-21T23:37:09.917746" elapsed="0.000000"/>
 </kw>
 <arg>${token_num}</arg>
 <arg>${token_exp}</arg>
-<status status="PASS" start="2024-03-18T23:45:00.593910" elapsed="6.832937"/>
+<status status="FAIL" start="2024-03-21T23:36:38.889071" elapsed="31.029674">Element 'name:otp' not visible after 30 seconds.</status>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${localTitlePageKetQua}</arg>
+<arg>${locationTitlePageKetQua}</arg>
 <arg>20s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:45:07.427862" elapsed="0.649039"/>
+<status status="NOT RUN" start="2024-03-21T23:37:09.918745" elapsed="0.000000"/>
 </kw>
 <kw name="Element Text Should Be" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:08.077419" level="INFO">Verifying element 'xpath://body//center//h1' contains exact text 'Giao dịch thành công'.</msg>
-<arg>${localTitlePageKetQua}</arg>
+<arg>${locationTitlePageKetQua}</arg>
 <arg>Giao dịch thành công</arg>
 <doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<status status="PASS" start="2024-03-18T23:45:08.077419" elapsed="0.023275"/>
+<status status="NOT RUN" start="2024-03-21T23:37:09.919745" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-03-18T23:44:54.245296" elapsed="13.856385"/>
+<status status="FAIL" start="2024-03-21T23:36:33.745851" elapsed="36.174894">Element 'name:otp' not visible after 30 seconds.</status>
 </test>
-<test id="s1-t4" name="Giao dich token OP" line="44">
+<test id="s1-t4" name="Giao dich token OP" line="48">
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:08.103679" level="INFO">Opening url 'https://dev.onepay.vn/client/qt/'</msg>
+<msg time="2024-03-21T23:37:09.923743" level="INFO">Opening url 'https://dev.onepay.vn/client/qt/'</msg>
 <arg>${PAYGATE_URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2024-03-18T23:45:08.103679" elapsed="0.189489"/>
+<status status="PASS" start="2024-03-21T23:37:09.923743" elapsed="0.163276"/>
 </kw>
 <kw name="Create token onepay" owner="PaymentToken">
 <kw name="Select Merchant ID" owner="Paygate">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:08.296170" level="INFO">Clicking element 'name:vpc_Merchant'.</msg>
+<msg time="2024-03-21T23:37:10.091016" level="INFO">Clicking element 'name:vpc_Merchant'.</msg>
 <arg>${selectMid}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:08.295168" elapsed="0.100261"/>
+<status status="PASS" start="2024-03-21T23:37:10.090019" elapsed="0.100463"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${localMerchantTestToken}</arg>
+<arg>${locationMerchantTestToken}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:45:08.395429" elapsed="0.029390"/>
+<status status="PASS" start="2024-03-21T23:37:10.190482" elapsed="0.092974"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:08.425818" level="INFO">Clicking element 'xpath://select[@name='vpc_Merchant']/option[@value='TESTTOKEN']'.</msg>
-<arg>${localMerchantTestToken}</arg>
+<msg time="2024-03-21T23:37:10.284456" level="INFO">Clicking element 'xpath://select[@name='vpc_Merchant']/option[@value='TESTTOKEN']'.</msg>
+<arg>${locationMerchantTestToken}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:08.425818" elapsed="0.034589"/>
+<status status="PASS" start="2024-03-21T23:37:10.283456" elapsed="0.070474"/>
 </kw>
-<status status="PASS" start="2024-03-18T23:45:08.295168" elapsed="0.166234"/>
+<status status="PASS" start="2024-03-21T23:37:10.089017" elapsed="0.265911"/>
 </kw>
 <kw name="Input them" owner="Paygate">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:08.461402" level="INFO">Typing text 'token' into text field 'name:vpc_Theme'.</msg>
-<arg>${localThem}</arg>
+<msg time="2024-03-21T23:37:10.360926" level="INFO">Typing text 'token' into text field 'name:vpc_Theme'.</msg>
+<arg>${locationThem}</arg>
 <arg>${txtThem}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:08.461402" elapsed="0.088521"/>
+<status status="PASS" start="2024-03-21T23:37:10.359929" elapsed="0.370581"/>
 </kw>
 <arg>${txtThem}</arg>
-<status status="PASS" start="2024-03-18T23:45:08.461402" elapsed="0.089507"/>
+<status status="PASS" start="2024-03-21T23:37:10.355930" elapsed="0.374580"/>
 </kw>
 <kw name="Input Customer User Id" owner="Paygate">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:08.551909" level="INFO">Typing text 'AutoTest' into text field 'name:vpc_Customer_Id'.</msg>
-<arg>${localUserId}</arg>
+<msg time="2024-03-21T23:37:10.732512" level="INFO">Typing text 'AutoTest' into text field 'name:vpc_Customer_Id'.</msg>
+<arg>${locationUserId}</arg>
 <arg>${txtUserId}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:08.551909" elapsed="0.123024"/>
+<status status="PASS" start="2024-03-21T23:37:10.731509" elapsed="0.153953"/>
 </kw>
 <arg>${txtUserID}</arg>
-<status status="PASS" start="2024-03-18T23:45:08.550909" elapsed="0.125023"/>
+<status status="PASS" start="2024-03-21T23:37:10.730510" elapsed="0.154952"/>
 </kw>
 <kw name="Paygate" owner="Paygate">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:08.676931" level="INFO">Typing text '1000000' into text field 'name:vpc_Amount'.</msg>
-<arg>${localAmount}</arg>
-<arg>1000000</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:08.675932" elapsed="0.099328"/>
-</kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:08.775260" level="INFO">Clicking button 'xpath://input[@value='Pay Now!']'.</msg>
+<msg time="2024-03-21T23:37:10.887455" level="INFO">Clicking button 'xpath://input[@value='Pay Now!']'.</msg>
 <arg>${btnPayNow}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:08.775260" elapsed="0.246668"/>
+<status status="PASS" start="2024-03-21T23:37:10.887455" elapsed="0.287058"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-03-18T23:45:11.023267" level="INFO">Slept 2 seconds.</msg>
+<msg time="2024-03-21T23:37:13.175809" level="INFO">Slept 2 seconds.</msg>
 <arg>2</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-03-18T23:45:09.022927" elapsed="2.000340"/>
+<status status="PASS" start="2024-03-21T23:37:11.174513" elapsed="2.001296"/>
 </kw>
-<status status="PASS" start="2024-03-18T23:45:08.675932" elapsed="2.347335"/>
+<status status="PASS" start="2024-03-21T23:37:10.886458" elapsed="2.289351"/>
 </kw>
 <kw name="Select domestic" owner="Paygate">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${radioDomestic}</arg>
 <arg>10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:45:11.024294" elapsed="0.872483"/>
+<status status="PASS" start="2024-03-21T23:37:13.177025" elapsed="0.021977"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:11.896777" level="INFO">Clicking element 'id:domescard-radio'.</msg>
+<msg time="2024-03-21T23:37:13.200001" level="INFO">Clicking element 'id:domescard-radio'.</msg>
 <arg>${radioDomestic}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:11.896777" elapsed="0.073482"/>
+<status status="PASS" start="2024-03-21T23:37:13.199002" elapsed="0.088985"/>
 </kw>
-<status status="PASS" start="2024-03-18T23:45:11.023267" elapsed="0.946992"/>
+<status status="PASS" start="2024-03-21T23:37:13.175809" elapsed="0.113178"/>
 </kw>
 <kw name="Select bank" owner="Paygate">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${listBank}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:45:11.971258" elapsed="0.041960"/>
+<status status="PASS" start="2024-03-21T23:37:13.289987" elapsed="0.038139"/>
 </kw>
 <kw name="Get WebElements" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:12.031150" level="INFO">@{banks} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="07647dcf1281c6d23c0c06d98bcd2612", element="f.9959C4BFB571172578D43D784961B052.d.0F231D150C9532E645D0C6C8596E24B2.e.1063")&gt; | &lt;selenium.web...</msg>
+<msg time="2024-03-21T23:37:13.344115" level="INFO">@{banks} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="98528cd2a5cb701a168340d3aabc242a", element="f.D1198A5797D6D1391D39A9912BE99E64.d.0322AC1A51BC6F83A8DFD426F7031F5B.e.1353")&gt; | &lt;selenium.web...</msg>
 <var>@{banks}</var>
 <arg>${listBank}</arg>
 <doc>Returns a list of WebElement objects matching the ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:12.014210" elapsed="0.017939"/>
+<status status="PASS" start="2024-03-21T23:37:13.328126" elapsed="0.015989"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:12.033149" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="07647dcf1281c6d23c0c06d98bcd2612", element="f.9959C4BFB571172578D43D784961B052.d.0F231D150C9532E645D0C6C8596E24B2.e.1064")&gt;'.</msg>
+<msg time="2024-03-21T23:37:13.345115" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="98528cd2a5cb701a168340d3aabc242a", element="f.D1198A5797D6D1391D39A9912BE99E64.d.0322AC1A51BC6F83A8DFD426F7031F5B.e.1354")&gt;'.</msg>
 <arg>${banks}[${bankId}]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:12.032149" elapsed="0.104627"/>
+<status status="PASS" start="2024-03-21T23:37:13.344115" elapsed="0.253956"/>
 </kw>
 <arg>${index}</arg>
-<status status="PASS" start="2024-03-18T23:45:11.971258" elapsed="0.165518"/>
+<status status="PASS" start="2024-03-21T23:37:13.288987" elapsed="0.310084"/>
 </kw>
 <kw name="Input carNumber" owner="Paygate">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:12.137295" level="INFO">Typing text '9704360000000000002' into text field 'id:card_number'.</msg>
-<arg>${localCardNumber}</arg>
+<msg time="2024-03-21T23:37:13.600070" level="INFO">Typing text '9704360000000000002' into text field 'id:card_number'.</msg>
+<msg time="2024-03-21T23:37:14.096192" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-03-21T23:37:14.097191" level="FAIL">Element with locator 'id:card_number' not found.</msg>
+<arg>${locationCardNumber}</arg>
 <arg>${txtCardNumber}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:12.137295" elapsed="0.191136"/>
+<status status="FAIL" start="2024-03-21T23:37:13.600070" elapsed="0.499120">Element with locator 'id:card_number' not found.</status>
 </kw>
 <arg>9704360000000000002</arg>
-<status status="PASS" start="2024-03-18T23:45:12.137295" elapsed="0.191136"/>
+<status status="FAIL" start="2024-03-21T23:37:13.599071" elapsed="0.501120">Element with locator 'id:card_number' not found.</status>
 </kw>
 <kw name="Input expDate" owner="Paygate">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:12.330435" level="INFO">Typing text '1123' into text field 'id:exp_date'.</msg>
-<arg>${localExpDate}</arg>
-<arg>${txtExpDate}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:12.329434" elapsed="0.105454"/>
-</kw>
 <arg>1123</arg>
-<status status="PASS" start="2024-03-18T23:45:12.328431" elapsed="0.107457"/>
+<status status="NOT RUN" start="2024-03-21T23:37:14.100191" elapsed="0.000000"/>
 </kw>
 <kw name="Input cardName" owner="Paygate">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:12.437392" level="INFO">Typing text 'Nguyen van a' into text field 'id:card_name'.</msg>
-<arg>${localCardName}</arg>
-<arg>${txtCardName}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:12.437392" elapsed="0.121316"/>
-</kw>
 <arg>Nguyen van a</arg>
-<status status="PASS" start="2024-03-18T23:45:12.435888" elapsed="0.122820"/>
+<status status="NOT RUN" start="2024-03-21T23:37:14.101194" elapsed="0.000000"/>
 </kw>
 <kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>${localBtnThanhToan}</arg>
+<arg>${locationBtnThanhToan}</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2024-03-18T23:45:12.558708" elapsed="0.029048"/>
+<status status="NOT RUN" start="2024-03-21T23:37:14.101194" elapsed="0.000000"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:12.589095" level="INFO">Clicking button 'xpath://div[@class='action']/button'.</msg>
-<arg>${localBtnThanhToan}</arg>
+<arg>${locationBtnThanhToan}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:12.587756" elapsed="0.093502"/>
+<status status="NOT RUN" start="2024-03-21T23:37:14.101194" elapsed="0.000000"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${localOtp}</arg>
+<arg>${locationOtp}</arg>
 <arg>15s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:45:12.682259" elapsed="0.665414"/>
+<status status="NOT RUN" start="2024-03-21T23:37:14.102194" elapsed="0.000000"/>
 </kw>
 <kw name="Input OTP" owner="Paygate">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:13.349680" level="INFO">Typing text '123456' into text field 'name:otp'.</msg>
-<arg>${localOtp}</arg>
-<arg>${otp}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:13.348686" elapsed="0.210284"/>
-</kw>
 <arg>123456</arg>
-<status status="PASS" start="2024-03-18T23:45:13.348686" elapsed="0.211283"/>
+<status status="NOT RUN" start="2024-03-21T23:37:14.102194" elapsed="0.000000"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:13.559969" level="INFO">Clicking button 'xpath://div[@class='otp']/button'.</msg>
-<arg>${localBtnSubmitOtp}</arg>
+<arg>${locationBtnSubmitOtp}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:13.559969" elapsed="0.061067"/>
+<status status="NOT RUN" start="2024-03-21T23:37:14.102194" elapsed="0.000000"/>
 </kw>
 <arg>token</arg>
 <arg>AutoTest</arg>
 <arg>1</arg>
-<status status="PASS" start="2024-03-18T23:45:08.294170" elapsed="5.327864"/>
+<status status="FAIL" start="2024-03-21T23:37:10.088020" elapsed="4.015175">Element with locator 'id:card_number' not found.</status>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:13.622034" level="INFO">Opening url 'https://dev.onepay.vn/client/qt/'</msg>
 <arg>${PAYGATE_URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2024-03-18T23:45:13.622034" elapsed="0.169733"/>
+<status status="NOT RUN" start="2024-03-21T23:37:14.103195" elapsed="0.000000"/>
+</kw>
+<kw name="Select Merchant ID" owner="Paygate">
+<status status="NOT RUN" start="2024-03-21T23:37:14.104192" elapsed="0.000000"/>
+</kw>
+<kw name="Input them" owner="Paygate">
+<arg>token</arg>
+<status status="NOT RUN" start="2024-03-21T23:37:14.105191" elapsed="0.000000"/>
+</kw>
+<kw name="Input Amount" owner="Paygate">
+<arg>1000000</arg>
+<status status="NOT RUN" start="2024-03-21T23:37:14.106191" elapsed="0.000000"/>
+</kw>
+<kw name="Input Customer User Id" owner="Paygate">
+<arg>AutoTest</arg>
+<status status="NOT RUN" start="2024-03-21T23:37:14.106191" elapsed="0.001001"/>
+</kw>
+<kw name="Paygate" owner="Paygate">
+<status status="NOT RUN" start="2024-03-21T23:37:14.107192" elapsed="0.000000"/>
+</kw>
+<kw name="Payment Token Onepay" owner="PaymentToken">
+<status status="NOT RUN" start="2024-03-21T23:37:14.108189" elapsed="0.001001"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locationTitlePageKetQua}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-03-21T23:37:14.109190" elapsed="0.000000"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<arg>${locationTitlePageKetQua}</arg>
+<arg>Giao dịch thành công</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="NOT RUN" start="2024-03-21T23:37:14.110189" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-03-21T23:37:09.922742" elapsed="4.189446">Element with locator 'id:card_number' not found.</status>
+</test>
+<test id="s1-t5" name="Thanh toán token với số Amount min" line="61">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-03-21T23:37:14.115690" level="INFO">Opening url 'https://dev.onepay.vn/client/qt/'</msg>
+<arg>${PAYGATE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-03-21T23:37:14.115690" elapsed="0.366837"/>
 </kw>
 <kw name="Select Merchant ID" owner="Paygate">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:13.794770" level="INFO">Clicking element 'name:vpc_Merchant'.</msg>
+<msg time="2024-03-21T23:37:14.485528" level="INFO">Clicking element 'name:vpc_Merchant'.</msg>
 <arg>${selectMid}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:13.793770" elapsed="0.077021"/>
+<status status="PASS" start="2024-03-21T23:37:14.484532" elapsed="0.067492"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${localMerchantTestToken}</arg>
+<arg>${locationMerchantTestToken}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:45:13.870791" elapsed="0.023032"/>
+<status status="PASS" start="2024-03-21T23:37:14.552024" elapsed="0.026994"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:13.893823" level="INFO">Clicking element 'xpath://select[@name='vpc_Merchant']/option[@value='TESTTOKEN']'.</msg>
-<arg>${localMerchantTestToken}</arg>
+<msg time="2024-03-21T23:37:14.580009" level="INFO">Clicking element 'xpath://select[@name='vpc_Merchant']/option[@value='TESTTOKEN']'.</msg>
+<arg>${locationMerchantTestToken}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:13.893823" elapsed="0.036262"/>
+<status status="PASS" start="2024-03-21T23:37:14.579018" elapsed="0.022991"/>
 </kw>
-<status status="PASS" start="2024-03-18T23:45:13.792772" elapsed="0.137313"/>
+<status status="PASS" start="2024-03-21T23:37:14.483526" elapsed="0.118483"/>
+</kw>
+<kw name="Input Amount" owner="Paygate">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-21T23:37:14.604009" level="INFO">Typing text '100000' into text field 'name:vpc_Amount'.</msg>
+<arg>${locationAmount}</arg>
+<arg>${txtAmount}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-21T23:37:14.603012" elapsed="0.100994"/>
+</kw>
+<arg>100000</arg>
+<status status="PASS" start="2024-03-21T23:37:14.603012" elapsed="0.100994"/>
 </kw>
 <kw name="Input them" owner="Paygate">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:13.931087" level="INFO">Typing text 'token' into text field 'name:vpc_Theme'.</msg>
-<arg>${localThem}</arg>
+<msg time="2024-03-21T23:37:14.707005" level="INFO">Typing text 'token' into text field 'name:vpc_Theme'.</msg>
+<arg>${locationThem}</arg>
 <arg>${txtThem}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:13.931087" elapsed="0.091458"/>
+<status status="PASS" start="2024-03-21T23:37:14.706006" elapsed="0.105730"/>
 </kw>
 <arg>token</arg>
-<status status="PASS" start="2024-03-18T23:45:13.930085" elapsed="0.092460"/>
+<status status="PASS" start="2024-03-21T23:37:14.705004" elapsed="0.107740"/>
 </kw>
 <kw name="Input Customer User Id" owner="Paygate">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:14.025542" level="INFO">Typing text 'AutoTest' into text field 'name:vpc_Customer_Id'.</msg>
-<arg>${localUserId}</arg>
+<msg time="2024-03-21T23:37:14.813736" level="INFO">Typing text 'AutoTest' into text field 'name:vpc_Customer_Id'.</msg>
+<arg>${locationUserId}</arg>
 <arg>${txtUserId}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:14.025542" elapsed="0.115356"/>
+<status status="PASS" start="2024-03-21T23:37:14.813736" elapsed="0.101964"/>
 </kw>
 <arg>AutoTest</arg>
-<status status="PASS" start="2024-03-18T23:45:14.024559" elapsed="0.116339"/>
+<status status="PASS" start="2024-03-21T23:37:14.813736" elapsed="0.101964"/>
 </kw>
 <kw name="Paygate" owner="Paygate">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:14.142899" level="INFO">Typing text '1000000' into text field 'name:vpc_Amount'.</msg>
-<arg>${localAmount}</arg>
-<arg>1000000</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:14.141896" elapsed="0.123825"/>
-</kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:14.266715" level="INFO">Clicking button 'xpath://input[@value='Pay Now!']'.</msg>
+<msg time="2024-03-21T23:37:14.919711" level="INFO">Clicking button 'xpath://input[@value='Pay Now!']'.</msg>
 <arg>${btnPayNow}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:14.266715" elapsed="0.209805"/>
+<status status="PASS" start="2024-03-21T23:37:14.917710" elapsed="0.258482"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-03-18T23:45:16.477709" level="INFO">Slept 2 seconds.</msg>
+<msg time="2024-03-21T23:37:17.177609" level="INFO">Slept 2 seconds.</msg>
 <arg>2</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-03-18T23:45:14.477543" elapsed="2.000166"/>
+<status status="PASS" start="2024-03-21T23:37:15.177213" elapsed="2.000396"/>
 </kw>
-<status status="PASS" start="2024-03-18T23:45:14.141896" elapsed="2.335813"/>
+<status status="PASS" start="2024-03-21T23:37:14.916706" elapsed="2.260903"/>
 </kw>
-<kw name="Payment Token Onepay" owner="PaymentToken">
+<kw name="Select token" owner="PaymentToken">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:16.479718" level="INFO">Clicking element 'xpath:(//div[@class='form enable_form'])[1]'.</msg>
-<arg>${localToken}</arg>
+<msg time="2024-03-21T23:37:17.178808" level="INFO">Clicking element 'xpath:(//div[@class='form enable_form'])[1]'.</msg>
+<arg>${locationToken}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:16.479718" elapsed="0.050092"/>
+<status status="PASS" start="2024-03-21T23:37:17.178808" elapsed="0.111488"/>
 </kw>
+<status status="PASS" start="2024-03-21T23:37:17.178808" elapsed="0.111488"/>
+</kw>
+<kw name="Verify popup" owner="PaymentToken">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${localBtnThanhToanToken}</arg>
+<arg>${locationHeaderPopup}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:45:16.529810" elapsed="0.022625"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:16.553445" level="INFO">Clicking element 'xpath:(//button[@class='btn btn-primary btn-xs col-md-6 btn_submit_select'])[1]'.</msg>
-<arg>${localBtnThanhToanToken}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:16.553445" elapsed="0.045150"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${localOtp}</arg>
-<arg>15s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:45:16.599592" elapsed="4.923319"/>
-</kw>
-<kw name="Input OTP" owner="Paygate">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:21.523876" level="INFO">Typing text '123456' into text field 'name:otp'.</msg>
-<arg>${localOtp}</arg>
-<arg>${otp}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:21.523876" elapsed="0.082624"/>
-</kw>
-<arg>123456</arg>
-<status status="PASS" start="2024-03-18T23:45:21.522911" elapsed="0.083589"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:21.607004" level="INFO">Clicking button 'xpath://div[@class='otp']/button'.</msg>
-<arg>${localBtnSubmitOtp}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-03-18T23:45:21.607004" elapsed="0.054414"/>
-</kw>
-<status status="PASS" start="2024-03-18T23:45:16.478716" elapsed="5.183700"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${localTitlePageKetQua}</arg>
-<arg>20s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-03-18T23:45:21.662416" elapsed="0.565909"/>
+<status status="PASS" start="2024-03-21T23:37:17.291294" elapsed="0.039565"/>
 </kw>
 <kw name="Element Text Should Be" owner="SeleniumLibrary">
-<msg time="2024-03-18T23:45:22.229331" level="INFO">Verifying element 'xpath://body//center//h1' contains exact text 'Giao dịch thành công'.</msg>
-<arg>${localTitlePageKetQua}</arg>
-<arg>Giao dịch thành công</arg>
+<msg time="2024-03-21T23:37:17.332843" level="INFO">Verifying element 'xpath://div[@class='header']//h6' contains exact text 'Số tiền thanh toán không hợp lệ!'.</msg>
+<arg>${locationHeaderPopup}</arg>
+<arg>${txtHeaderPopup}</arg>
 <doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<status status="PASS" start="2024-03-18T23:45:22.229331" elapsed="0.015532"/>
+<status status="PASS" start="2024-03-21T23:37:17.331861" elapsed="0.043952"/>
 </kw>
-<status status="PASS" start="2024-03-18T23:45:08.102679" elapsed="14.142184"/>
+<arg>Số tiền thanh toán không hợp lệ!</arg>
+<status status="PASS" start="2024-03-21T23:37:17.290296" elapsed="0.086550"/>
+</kw>
+<status status="PASS" start="2024-03-21T23:37:14.114188" elapsed="3.263637"/>
+</test>
+<test id="s1-t6" name="Thanh toán token với số Amount Max" line="71">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-03-21T23:37:17.384858" level="INFO">Opening url 'https://dev.onepay.vn/client/qt/'</msg>
+<arg>${PAYGATE_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-03-21T23:37:17.382844" elapsed="0.185069"/>
+</kw>
+<kw name="Select Merchant ID" owner="Paygate">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-21T23:37:17.569910" level="INFO">Clicking element 'name:vpc_Merchant'.</msg>
+<arg>${selectMid}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-21T23:37:17.568910" elapsed="0.064992"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locationMerchantTestToken}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-03-21T23:37:17.633902" elapsed="0.018991"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-21T23:37:17.653891" level="INFO">Clicking element 'xpath://select[@name='vpc_Merchant']/option[@value='TESTTOKEN']'.</msg>
+<arg>${locationMerchantTestToken}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-21T23:37:17.652893" elapsed="0.023986"/>
+</kw>
+<status status="PASS" start="2024-03-21T23:37:17.567913" elapsed="0.108966"/>
+</kw>
+<kw name="Input Amount" owner="Paygate">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-21T23:37:17.677877" level="INFO">Typing text '20000000100' into text field 'name:vpc_Amount'.</msg>
+<arg>${locationAmount}</arg>
+<arg>${txtAmount}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-21T23:37:17.677877" elapsed="0.087255"/>
+</kw>
+<arg>20000000100</arg>
+<status status="PASS" start="2024-03-21T23:37:17.676879" elapsed="0.089240"/>
+</kw>
+<kw name="Input them" owner="Paygate">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-21T23:37:17.767122" level="INFO">Typing text 'token' into text field 'name:vpc_Theme'.</msg>
+<arg>${locationThem}</arg>
+<arg>${txtThem}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-21T23:37:17.767122" elapsed="0.079196"/>
+</kw>
+<arg>token</arg>
+<status status="PASS" start="2024-03-21T23:37:17.766119" elapsed="0.081210"/>
+</kw>
+<kw name="Input Customer User Id" owner="Paygate">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-03-21T23:37:17.848317" level="INFO">Typing text 'AutoTest' into text field 'name:vpc_Customer_Id'.</msg>
+<arg>${locationUserId}</arg>
+<arg>${txtUserId}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-21T23:37:17.848317" elapsed="0.094464"/>
+</kw>
+<arg>AutoTest</arg>
+<status status="PASS" start="2024-03-21T23:37:17.847329" elapsed="0.095452"/>
+</kw>
+<kw name="Paygate" owner="Paygate">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-03-21T23:37:17.944782" level="INFO">Clicking button 'xpath://input[@value='Pay Now!']'.</msg>
+<arg>${btnPayNow}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-21T23:37:17.943780" elapsed="0.291938"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-03-21T23:37:20.237157" level="INFO">Slept 2 seconds.</msg>
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-03-21T23:37:18.236716" elapsed="2.000441"/>
+</kw>
+<status status="PASS" start="2024-03-21T23:37:17.943780" elapsed="2.293377"/>
+</kw>
+<kw name="Select token" owner="PaymentToken">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-03-21T23:37:20.239337" level="INFO">Clicking element 'xpath:(//div[@class='form enable_form'])[1]'.</msg>
+<arg>${locationToken}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-03-21T23:37:20.238337" elapsed="0.048495"/>
+</kw>
+<status status="PASS" start="2024-03-21T23:37:20.238337" elapsed="0.048495"/>
+</kw>
+<kw name="Verify popup" owner="PaymentToken">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locationHeaderPopup}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-03-21T23:37:20.288833" elapsed="0.042033"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2024-03-21T23:37:20.333863" level="INFO">Verifying element 'xpath://div[@class='header']//h6' contains exact text 'Số tiền thanh toán không hợp lệ!'.</msg>
+<arg>${locationHeaderPopup}</arg>
+<arg>${txtHeaderPopup}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2024-03-21T23:37:20.332869" elapsed="0.044968"/>
+</kw>
+<arg>Số tiền thanh toán không hợp lệ!</arg>
+<status status="PASS" start="2024-03-21T23:37:20.287832" elapsed="0.091009"/>
+</kw>
+<status status="PASS" start="2024-03-21T23:37:17.380826" elapsed="3.000014"/>
 </test>
 <kw name="Close test brower" owner="Common" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2024-03-18T23:45:22.247948" elapsed="6.454624"/>
+<status status="PASS" start="2024-03-21T23:37:20.387835" elapsed="6.240168"/>
 </kw>
-<status status="PASS" start="2024-03-18T23:45:22.246865" elapsed="6.455707"/>
+<status status="PASS" start="2024-03-21T23:37:20.386836" elapsed="6.241167"/>
 </kw>
-<status status="PASS" start="2024-03-18T23:44:26.019650" elapsed="62.683928"/>
+<status status="FAIL" start="2024-03-21T23:36:03.870220" elapsed="82.757783"/>
 </suite>
 <statistics>
 <total>
-<stat pass="4" fail="0" skip="0">All Tests</stat>
+<stat pass="4" fail="2" skip="0">All Tests</stat>
 </total>
 <tag>
 <stat pass="1" fail="0" skip="0">select bank</stat>
 <stat pass="1" fail="0" skip="0">Validate</stat>
 </tag>
 <suite>
-<stat pass="4" fail="0" skip="0" id="s1" name="Tcspaygate">Tcspaygate</stat>
+<stat pass="4" fail="2" skip="0" id="s1" name="Tcspaygate">Tcspaygate</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2024-03-18T23:44:26.444057" level="WARN">Error in file 'e:\Automation\Onepay\paygate\Resource\PageObject\Keywords\Paygate.robot' on line 47: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2024-03-18T23:44:26.447088" level="WARN">Error in file 'e:\Automation\Onepay\paygate\Resource\PageObject\Keywords\Paygate.robot' on line 164: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2024-03-18T23:44:26.448117" level="WARN">Error in file 'e:\Automation\Onepay\paygate\Resource\PageObject\Keywords\Paygate.robot' on line 169: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2024-03-21T23:36:04.122236" level="WARN">Error in file 'e:\Automation\Onepay\paygate\Resource\PageObject\Keywords\Paygate.robot' on line 168: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2024-03-21T23:36:04.123235" level="WARN">Error in file 'e:\Automation\Onepay\paygate\Resource\PageObject\Keywords\Paygate.robot' on line 173: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
 </errors>
 </robot>

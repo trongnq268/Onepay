@@ -8,26 +8,30 @@ msgErrorCardNumne = "xpath://div[@class='form-field form-field-big']//span[@clas
 msgErrorDate = "xpath:(//span[@class='error'])[1]"
 msgErrorName = "xpath:(//span[@class='error'])[2]"
 
-#local
-localCardNumber = "id:card_number"
-localExpDate = "id:exp_date"
-localCardName = "id:card_name"
-localBtnThanhToan = "xpath://div[@class='action']/button"
-localHuongDan = "xpath://span[@class='open_dialog']"
-localDieuKien = "xpath://div[@class='condition']"
-localHuyGiaoDich = "xpath://a[7]"
+#location
+locationCardNumber = "id:card_number"
+locationExpDate = "id:exp_date"
+locationCardName = "id:card_name"
+locationBtnThanhToan = "xpath://div[@class='action']/button"
+locationHuongDan = "xpath://span[@class='open_dialog']"
+locationDieuKien = "xpath://div[@class='condition']"
+locationHuyGiaoDich = "xpath://a[7]"
 
 #popup Hủy giao dịch
-localPopupTitle = "xpath://div[@class='header']//h6"
-localMsgPopup = "xpath://div[@class='content-detail']"
-localBtnXacNhan = "xpath://button[@type='button']"
-localBoquaPopup = "xpath://div[@class='content row']//a"
+locationPopupTitle = "xpath://div[@class='header']//h6"
+locationMsgPopup = "xpath://div[@class='content-detail']"
+locationBtnXacNhan = "xpath://button[@type='button']"
+locationBoquaPopup = "xpath://div[@class='content row']//a"
 
 
 #page OTP onepay
-localOtp = "name:otp"
-localBtnSubmitOtp = "xpath://div[@class='otp']/button"
+locationOtp = "name:otp"
+locationBtnSubmitOtp = "xpath://div[@class='otp']/button"
 otp = "123456"
 #Token OnePay
-localToken = "xpath:(//div[@class='form enable_form'])[1]"
-localBtnThanhToanToken = "xpath:(//button[@class='btn btn-primary btn-xs col-md-6 btn_submit_select'])[1]"
+locationToken = "xpath:(//div[@class='form enable_form'])[1]"
+locationBtnThanhToanToken = "xpath:(//button[@class='btn btn-primary btn-xs col-md-6 btn_submit_select'])[1]"
+
+#popup 
+locationHeaderPopup = "xpath://div[@class='header']//h6"
+locationNoiDungPopUp = "class:form-field form-field-big"
